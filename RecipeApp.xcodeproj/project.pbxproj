@@ -7,27 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
+		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
-		CBC325082515E9100007C146 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325072515E9100007C146 /* SceneDelegate.swift */; };
 		CBC3250A2515E9100007C146 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* ViewController.swift */; };
 		CBC3250D2515E9100007C146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC3250B2515E9100007C146 /* Main.storyboard */; };
 		CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */; };
 		CBC325122515E9100007C146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC325112515E9100007C146 /* Assets.xcassets */; };
 		CBC325152515E9100007C146 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC325132515E9100007C146 /* LaunchScreen.storyboard */; };
+		CBC325202515EC050007C146 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3251F2515EC050007C146 /* Networking.swift */; };
 		D66AA3541A87490574D448F3 /* libPods-RecipeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D33ECD4EAD4F2247B7166365 /* libPods-RecipeApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C28A8BC2DC9826B8DC79AB9 /* Pods-RecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeApp.release.xcconfig"; path = "Target Support Files/Pods-RecipeApp/Pods-RecipeApp.release.xcconfig"; sourceTree = "<group>"; };
+		CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
+		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CBC325022515E9100007C146 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC325052515E9100007C146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBC325072515E9100007C146 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CBC325092515E9100007C146 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CBC3250C2515E9100007C146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeApp.xcdatamodel; sourceTree = "<group>"; };
 		CBC325112515E9100007C146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBC325142515E9100007C146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBC325162515E9100007C146 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBC3251F2515EC050007C146 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		D33ECD4EAD4F2247B7166365 /* libPods-RecipeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8768EDFCE435A583715BA51 /* Pods-RecipeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeApp.debug.xcconfig"; path = "Target Support Files/Pods-RecipeApp/Pods-RecipeApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,7 +54,6 @@
 				F8768EDFCE435A583715BA51 /* Pods-RecipeApp.debug.xcconfig */,
 				4C28A8BC2DC9826B8DC79AB9 /* Pods-RecipeApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,16 +86,42 @@
 		CBC325042515E9100007C146 /* RecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				CBC3251C2515EBB50007C146 /* Model */,
+				CBC3251D2515EBCA0007C146 /* View */,
+				CBC3251E2515EBD70007C146 /* Controller */,
 				CBC325052515E9100007C146 /* AppDelegate.swift */,
-				CBC325072515E9100007C146 /* SceneDelegate.swift */,
-				CBC325092515E9100007C146 /* ViewController.swift */,
-				CBC3250B2515E9100007C146 /* Main.storyboard */,
 				CBC325112515E9100007C146 /* Assets.xcassets */,
 				CBC325132515E9100007C146 /* LaunchScreen.storyboard */,
 				CBC325162515E9100007C146 /* Info.plist */,
 				CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */,
 			);
 			path = RecipeApp;
+			sourceTree = "<group>";
+		};
+		CBC3251C2515EBB50007C146 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBC3251F2515EC050007C146 /* Networking.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBC3251D2515EBCA0007C146 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBC3250B2515E9100007C146 /* Main.storyboard */,
+				CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */,
+				CBA596702516C61A000AC461 /* CustomTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBC3251E2515EBD70007C146 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBC325092515E9100007C146 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +222,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBC3250A2515E9100007C146 /* ViewController.swift in Sources */,
+				CBC325202515EC050007C146 /* Networking.swift in Sources */,
+				CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */,
 				CBC325062515E9100007C146 /* AppDelegate.swift in Sources */,
-				CBC325082515E9100007C146 /* SceneDelegate.swift in Sources */,
 				CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */,
+				CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
