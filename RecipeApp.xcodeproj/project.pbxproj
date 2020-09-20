@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBA060FA2516DE5400AC03C4 /* UIViewController + setAlertVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA060F92516DE5400AC03C4 /* UIViewController + setAlertVc.swift */; };
 		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
 		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		4C28A8BC2DC9826B8DC79AB9 /* Pods-RecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeApp.release.xcconfig"; path = "Target Support Files/Pods-RecipeApp/Pods-RecipeApp.release.xcconfig"; sourceTree = "<group>"; };
+		CBA060F92516DE5400AC03C4 /* UIViewController + setAlertVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + setAlertVc.swift"; sourceTree = "<group>"; };
 		CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
 		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CBC325022515E9100007C146 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CBC325092515E9100007C146 /* ViewController.swift */,
+				CBA060F92516DE5400AC03C4 /* UIViewController + setAlertVc.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA060FA2516DE5400AC03C4 /* UIViewController + setAlertVc.swift in Sources */,
 				CBC3250A2515E9100007C146 /* ViewController.swift in Sources */,
 				CBC325202515EC050007C146 /* Networking.swift in Sources */,
 				CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */,
