@@ -1,5 +1,5 @@
 //
-//  UIView+cornerRadius.swift
+//  UIView+shadow.swift
 //  RecipeApp
 //
 //  Created by Merouane Bellaha on 20/09/2020.
@@ -9,12 +9,7 @@
 import UIKit
 
 extension UIView {
-    @IBInspectable
-    var cornerRadius: CGFloat {
-        get { layer.cornerRadius }
-        set { layer.cornerRadius = newValue }
-    }
-
+    
     @IBInspectable
     var shadowColor: UIColor {
         get { UIColor(cgColor: layer.shadowColor ?? UIColor.gray.cgColor) }
@@ -38,26 +33,4 @@ extension UIView {
         get { layer.shadowOffset }
         set { layer.shadowOffset = newValue }
     }
-
-
-    //
-    //    @IBInspectable var shadowRadius: CGFloat = 1.0 {
-    //        didSet {
-    //            layer.shadowRadius = shadowRadius
-    //        }
-    //    }
-    //
-    //    @IBInspectable var masksToBounds: Bool = true {
-    //        didSet {
-    //            layer.masksToBounds = masksToBounds
-    //        }
-    //    }
-    //
-    //    @IBInspectable var shadowOffset: CGSize = CGSize(width: 12, height: 12) {
-    //        didSet {
-    //            layer.shadowOffset = shadowOffset
-    //        }
-    //    }
 }
-
-

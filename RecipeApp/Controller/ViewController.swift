@@ -14,6 +14,9 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var tableViewFooterLabel: UILabel!
     @IBOutlet private weak var textField: CustomTextField!
+    @IBOutlet private weak var tableViewHeaderLabel: UILabel!
+    @IBOutlet private weak var searchButton: UIButton!
+    @IBOutlet private weak var clearAllView: UIStackView!
 
     var fakeList: [String] = []
 
@@ -35,12 +38,12 @@ final class ViewController: UIViewController {
         }
     }
 
-    @IBAction private func clearButtonTapped(_ sender: UIButton) {
+    @IBAction func clearButtonTapped() {
         fakeList.removeAll()
         tableView.reloadData()
     }
 
-    @IBAction private func addButtonTapped(_ sender: UIButton) {
+    @IBAction func addButtonTapped() {
         guard textField.text != "",
             let ingredient = textField.text else {
                 setAlertVc(with: "Aucun aliment à ajouter !")
@@ -50,9 +53,15 @@ final class ViewController: UIViewController {
             setAlertVc(with: "Pas plus de 5 ingrédients !")
             return
         }
-        fakeList.append("• \(ingredient)")
+        fakeList.append("🥕 \(ingredient)")
         tableView.reloadData()
         textField.text?.removeAll()
+    }
+
+    @IBAction private func searchButtonTapped() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 
@@ -63,11 +72,23 @@ extension ViewController: UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { _, indexPath in
+            self.tableView.dataSource?.tableView?(self.tableView, commit: .delete, forRowAt: indexPath)
+        }
+        deleteButton.backgroundColor = UIColor(named: "Accent")
+        return [deleteButton]
+    }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableViewFooterLabel.text = fakeList.count == 0 ? "add ingredients" : "Swipe left to remove an ingredient"
+//        tableViewFooterLabel.text = fakeList.count == 0 ? "add ingredients" : "Swipe left to remove an ingredient"
+        clearAllView.isHidden = fakeList.count == 0 ? true : false
+        searchButton.isHidden = fakeList.count == 0 ? true : false
+        tableViewFooterLabel.text = fakeList.count == 0 ? .none : "Swipe left to remove an ingredient"
+        tableViewHeaderLabel.text = fakeList.count == 0 ? "Add some ingredients to start !" : "Your ingredients"
         return fakeList.count
     }
 
@@ -86,5 +107,14 @@ struct Data: Decodable {
 
     struct UserInfo: Decodable {
         var name: String
+    }
+}
+
+
+extension NSLayoutConstraint {
+
+    override public var description: String {
+        let id = identifier ?? ""
+        return "id: \(id), constant: \(constant)" //you may print whatever you want here
     }
 }
