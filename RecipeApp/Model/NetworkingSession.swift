@@ -15,12 +15,8 @@ protocol AlamoSession {
 
 final class NetworkingSession: AlamoSession {
     func request(with url: URL, callback: @escaping (DataResponse<Any>) -> Void) {
-
         Alamofire.request(url).responseJSON { responseData in
             callback(responseData)
-
-//            callback(DataResponse(request: <#URLRequest?#>, response: <#HTTPURLResponse?#>, data: <#Data?#>, metrics: <#URLSessionTaskMetrics?#>, serializationDuration: <#TimeInterval#>, result: <#Result<Any, AFError>#>))
-
       }
     }
 }

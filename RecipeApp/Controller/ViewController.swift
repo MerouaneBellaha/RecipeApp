@@ -6,23 +6,7 @@
 //  Copyright © 2020 Merouane Bellaha. All rights reserved.
 //
 
-extension String {
-    func transformToArray() -> [String] {
-        return self.components(separatedBy: .punctuationCharacters)
-            .map { $0.trimmingCharacters(in: .whitespaces)}
-            .map { "🥕 \($0)"}
-    }
-}
-
-extension Array where Element == String {
-    func format() -> String {
-        return self.map { $0.replacingOccurrences(of: "🥕 ", with: "") }
-            .joined(separator: ",")
-    }
-}
-
 import UIKit
-//import Alamofire
 
 final class ViewController: UIViewController {
 
@@ -35,14 +19,14 @@ final class ViewController: UIViewController {
 
     private var networkingService = NetworkingService()
 
-    var fakeList: [String] = []
+    var ingredients: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction private func clearButtonTapped() {
-        fakeList.removeAll()
+        ingredients.removeAll()
         tableView.reloadData()
     }
 
@@ -52,23 +36,20 @@ final class ViewController: UIViewController {
             setAlertVc(with: "Aucun aliment à ajouter !")
             return
         }
-        guard fakeList.count < 5 else {
+        guard ingredients.count < 5 else {
             setAlertVc(with: "Vous ne pouvez pas ajouter plus d'ingrédients !")
             return
         }
         let ingredientsList = ingredients.transformToArray()
-        fakeList.append(contentsOf: ingredientsList)
+        self.ingredients.append(contentsOf: ingredientsList)
         tableView.reloadData()
         textField.text?.removeAll()
     }
 
     @IBAction private func searchButtonTapped() {
-
-        let ingredients = fakeList.format()
+        let ingredients = self.ingredients.transformToString()
         networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
         }
-
-
     }
 
     private func navigateToRecipes(with data: EdamamData) {
@@ -93,35 +74,10 @@ final class ViewController: UIViewController {
     }
 }
 
-struct RecipeModel {
-    let hit: Hit
-    let query: String
-
-    var searchedIngredients: String { query.components(separatedBy: ",").joined(separator: ", ") }
-    var name: String { hit.recipe.label }
-    var image: String { hit.recipe.image }
-    var yield: String { String(" \(hit.recipe.yield) parts") }
-    var ingredients: [String] { hit.recipe.ingredientLines }
-    var time: String { displayStringFormat(from: hit.recipe.totalTime) }
-
-
-
-    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int) {
-        print(hit.recipe.totalTime)
-
-        return ((seconds % 3600) / 60, (seconds % 3600) % 60)
-    }
-
-    func displayStringFormat(from seconds:Int) -> String {
-        let (m, s) = secondsToHoursMinutesSeconds (seconds: seconds)
-        return (m, s) == (0, 0) ? "N/A" : ("\(m)' \(s)''")
-    }
-}
-
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            fakeList.remove(at: indexPath.row)
+            ingredients.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
@@ -137,25 +93,19 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        clearAllView.isHidden = fakeList.count == 0 ? true : false
-        searchButton.isHidden = fakeList.count == 0 ? true : false
-        tableViewFooterLabel.text = fakeList.count == 0 ? .none : "Swipe left to remove an ingredient"
-        tableViewHeaderLabel.text = fakeList.count == 0 ? "Add some ingredients to start !" : "Your ingredients"
-        return fakeList.count
+        clearAllView.isHidden = ingredients.count == 0 ? true : false
+        searchButton.isHidden = ingredients.count == 0 ? true : false
+        tableViewFooterLabel.text = ingredients.count == 0 ? .none : "Swipe left to remove an ingredient"
+        tableViewHeaderLabel.text = ingredients.count == 0 ? "Add some ingredients to start !" : "Your ingredients"
+        return ingredients.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
-        cell.textLabel?.text = fakeList[indexPath.row]
+        cell.textLabel?.text = ingredients[indexPath.row]
         return cell
     }
 }
-
-//extension String {
-//    func format(from list: [String]) -> String {
-//        list.joined(separator: ",")
-//    }
-//}
 
 extension NSLayoutConstraint {
 

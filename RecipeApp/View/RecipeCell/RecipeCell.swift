@@ -24,21 +24,10 @@ class RecipeCell: UITableViewCell {
             recipeName.text = recipe?.name
             searchedIngredients.text = recipe?.searchedIngredients
             time.text = recipe?.time
-            guard let data = recipe?.image.data else {
-                picture.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-                return
+            guard let image = recipe?.image else {
+                return picture.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             }
-            picture.image = UIImage(data: data)
+            picture.image = UIImage(data: image)
         }
-    }
-}
-
-
-extension String {
-    /// get data from URL
-    var data: Data? {
-        guard let url = URL(string: self) else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        return data
     }
 }

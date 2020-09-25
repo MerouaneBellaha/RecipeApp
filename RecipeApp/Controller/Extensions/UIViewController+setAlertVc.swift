@@ -1,5 +1,5 @@
 //
-//  UIViewController + setAlertVc.swift
+//  UIViewController+setAlertVc.swift
 //  travelApp
 //
 //  Created by Merouane Bellaha on 15/07/2020.
