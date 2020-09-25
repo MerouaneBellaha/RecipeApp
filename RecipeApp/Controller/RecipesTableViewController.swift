@@ -10,9 +10,12 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
 
+    var hits: [Hit] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRecipeCell()
+        print(hits)
     }
 
     private func setUpRecipeCell() {

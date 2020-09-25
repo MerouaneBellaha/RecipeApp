@@ -6,6 +6,21 @@
 //  Copyright © 2020 Merouane Bellaha. All rights reserved.
 //
 
+extension String {
+    func transformToArray() -> [String] {
+        return self.components(separatedBy: .punctuationCharacters)
+            .map { $0.trimmingCharacters(in: .whitespaces)}
+            .map { "🥕 \($0)"}
+    }
+}
+
+extension Array where Element == String {
+    func format() -> String {
+        return self.map { $0.replacingOccurrences(of: "🥕 ", with: "") }
+            .joined(separator: ",")
+    }
+}
+
 import UIKit
 //import Alamofire
 
@@ -24,10 +39,6 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        networkingService.request(ingredients: String()) { [unowned self] result in self.manageResult(with: result)
-        }
-
     }
 
     @IBAction private func clearButtonTapped() {
@@ -37,33 +48,48 @@ final class ViewController: UIViewController {
 
     @IBAction private func addButtonTapped() {
         guard textField.text != "",
-              let ingredient = textField.text else {
+              let ingredients = textField.text else {
             setAlertVc(with: "Aucun aliment à ajouter !")
             return
         }
         guard fakeList.count < 5 else {
-            setAlertVc(with: "Pas plus de 5 ingrédients !")
+            setAlertVc(with: "Vous ne pouvez pas ajouter plus d'ingrédients !")
             return
         }
-        fakeList.append("🥕 \(ingredient)")
+        let ingredientsList = ingredients.transformToArray()
+        fakeList.append(contentsOf: ingredientsList)
         tableView.reloadData()
         textField.text?.removeAll()
     }
 
     @IBAction private func searchButtonTapped() {
+
+        let ingredients = fakeList.format()
+
+        networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
+        }
+
+
+    }
+
+    private func navigateToRecipes(with hits: [Hit]) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
+        nextViewController.hits = hits
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
-    private func manageResult(with result: Result<ApiData, RequestError>) {
+    private func manageResult(with result: Result<EdamamData, RequestError>) {
         switch result {
         case .success(let data):
             DispatchQueue.main.async {
-                print(data)
+                guard !data.hits.isEmpty else {
+                    return self.setAlertVc(with: "Au moins l'un de vos ingrédients n'existe pas, vérifiez l'orthrographe !")
+                }
+                self.navigateToRecipes(with: data.hits)
             }
         case .failure(let error):
-            print(error.localizedDescription)
+            setAlertVc(with: error.description)
         }
     }
 }
@@ -99,10 +125,13 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = fakeList[indexPath.row]
         return cell
     }
-
-
-
 }
+
+//extension String {
+//    func format(from list: [String]) -> String {
+//        list.joined(separator: ",")
+//    }
+//}
 
 extension NSLayoutConstraint {
 
