@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+//import Alamofire
 
 final class ViewController: UIViewController {
 
@@ -18,36 +18,28 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var clearAllView: UIStackView!
 
+    private var networkingService = NetworkingService()
+
     var fakeList: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        AF.request("https://api.androidhive.info/contacts/")
-            .response { response in
-
-
-                guard response.error == nil else {
-                    debugPrint(response.error.debugDescription)
-                    return }
-
-                guard let data = response.data else { return }
-                
-                guard let dataDecoded = try? JSONDecoder().decode(Data.self, from: data) else { return }
-                debugPrint(dataDecoded)
+        networkingService.request(ingredients: String()) { [unowned self] result in self.manageResult(with: result)
         }
+
     }
 
-    @IBAction func clearButtonTapped() {
+    @IBAction private func clearButtonTapped() {
         fakeList.removeAll()
         tableView.reloadData()
     }
 
-    @IBAction func addButtonTapped() {
+    @IBAction private func addButtonTapped() {
         guard textField.text != "",
-            let ingredient = textField.text else {
-                setAlertVc(with: "Aucun aliment à ajouter !")
-                return
+              let ingredient = textField.text else {
+            setAlertVc(with: "Aucun aliment à ajouter !")
+            return
         }
         guard fakeList.count < 5 else {
             setAlertVc(with: "Pas plus de 5 ingrédients !")
@@ -62,6 +54,17 @@ final class ViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+
+    private func manageResult(with result: Result<ApiData, RequestError>) {
+        switch result {
+        case .success(let data):
+            DispatchQueue.main.async {
+                print(data)
+            }
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
     }
 }
 
@@ -84,7 +87,6 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        tableViewFooterLabel.text = fakeList.count == 0 ? "add ingredients" : "Swipe left to remove an ingredient"
         clearAllView.isHidden = fakeList.count == 0 ? true : false
         searchButton.isHidden = fakeList.count == 0 ? true : false
         tableViewFooterLabel.text = fakeList.count == 0 ? .none : "Swipe left to remove an ingredient"
@@ -101,15 +103,6 @@ extension ViewController: UITableViewDataSource {
 
 
 }
-
-struct Data: Decodable {
-    var contacts: [UserInfo]
-
-    struct UserInfo: Decodable {
-        var name: String
-    }
-}
-
 
 extension NSLayoutConstraint {
 
