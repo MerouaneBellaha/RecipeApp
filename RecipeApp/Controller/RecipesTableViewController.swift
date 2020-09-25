@@ -10,12 +10,12 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
 
-    var hits: [Hit] = []
+    var recipesModel: [RecipeModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRecipeCell()
-        print(hits)
+        
     }
 
     private func setUpRecipeCell() {
@@ -26,11 +26,12 @@ class RecipesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return recipesModel.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
+        cell.recipe = recipesModel[indexPath.row]
         return cell
 
     }

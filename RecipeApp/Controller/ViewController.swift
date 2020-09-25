@@ -65,17 +65,16 @@ final class ViewController: UIViewController {
     @IBAction private func searchButtonTapped() {
 
         let ingredients = fakeList.format()
-
         networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
         }
 
 
     }
 
-    private func navigateToRecipes(with hits: [Hit]) {
+    private func navigateToRecipes(with data: EdamamData) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
-        nextViewController.hits = hits
+        nextViewController.recipesModel = data.hits.map { RecipeModel(hit: $0, query: data.q) }
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
@@ -86,11 +85,36 @@ final class ViewController: UIViewController {
                 guard !data.hits.isEmpty else {
                     return self.setAlertVc(with: "Au moins l'un de vos ingrédients n'existe pas, vérifiez l'orthrographe !")
                 }
-                self.navigateToRecipes(with: data.hits)
+                self.navigateToRecipes(with: data)
             }
         case .failure(let error):
             setAlertVc(with: error.description)
         }
+    }
+}
+
+struct RecipeModel {
+    let hit: Hit
+    let query: String
+
+    var searchedIngredients: String { query.components(separatedBy: ",").joined(separator: ", ") }
+    var name: String { hit.recipe.label }
+    var image: String { hit.recipe.image }
+    var yield: String { String(" \(hit.recipe.yield) parts") }
+    var ingredients: [String] { hit.recipe.ingredientLines }
+    var time: String { displayStringFormat(from: hit.recipe.totalTime) }
+
+
+
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int) {
+        print(hit.recipe.totalTime)
+
+        return ((seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+
+    func displayStringFormat(from seconds:Int) -> String {
+        let (m, s) = secondsToHoursMinutesSeconds (seconds: seconds)
+        return (m, s) == (0, 0) ? "N/A" : ("\(m)' \(s)''")
     }
 }
 

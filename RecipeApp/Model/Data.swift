@@ -9,6 +9,7 @@
 import Foundation
 
 struct EdamamData: Decodable {
+    let q: String
     let hits: [Hit]
 }
 
