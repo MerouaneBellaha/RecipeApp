@@ -36,7 +36,7 @@ final class ViewController: UIViewController {
             setAlertVc(with: "Aucun aliment à ajouter !")
             return
         }
-        guard ingredients.count < 5 else {
+        guard self.ingredients.count < 5 else {
             setAlertVc(with: "Vous ne pouvez pas ajouter plus d'ingrédients !")
             return
         }

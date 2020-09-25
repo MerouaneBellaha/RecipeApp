@@ -15,13 +15,15 @@ struct RecipeModel {
     var searchedIngredients: String { query.components(separatedBy: ",").joined(separator: ", ") }
     var name: String { hit.recipe.label }
     var image: Data? { hit.recipe.image.asData }
-    var yield: String { String(" \(hit.recipe.yield) parts") }
+    var yield: String { String("\(hit.recipe.yield) parts") }
     var ingredients: [String] { hit.recipe.ingredientLines }
-    var time: String { displayStringFormat(from: hit.recipe.totalTime) }
+    var time: String? {
+        hit.recipe.totalTime == 0 ?
+            nil :
+            displayStringFormat(from: hit.recipe.totalTime)
+         }
 
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int) {
-        print(hit.recipe.totalTime)
-
         return ((seconds % 3600) / 60, (seconds % 3600) % 60)
     }
 
