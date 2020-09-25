@@ -18,6 +18,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var clearAllView: UIStackView!
 
     private var networkingService = NetworkingService()
+    private var activityIndicator: UIAlertController!
 
     var ingredients: [String] = []
 
@@ -48,8 +49,14 @@ final class ViewController: UIViewController {
 
     @IBAction private func searchButtonTapped() {
         let ingredients = self.ingredients.transformToString()
-        networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
+        setActivityAlert(withTitle: "Please wait !",
+                         message: "We're getting your recipes !")
+        { activityIndicator in
+            self.networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
+            }
+            self.activityIndicator = activityIndicator
         }
+
     }
 
     private func navigateToRecipes(with data: EdamamData) {
@@ -57,19 +64,22 @@ final class ViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
         nextViewController.recipesModel = data.hits.map { RecipeModel(hit: $0, query: data.q) }
         self.navigationController?.pushViewController(nextViewController, animated: true)
+        activityIndicator.dismiss(animated: false)
     }
 
     private func manageResult(with result: Result<EdamamData, RequestError>) {
-        switch result {
-        case .success(let data):
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            switch result {
+            case .success(let data):
                 guard !data.hits.isEmpty else {
+                    self.activityIndicator.dismiss(animated: true)
                     return self.setAlertVc(with: "Au moins l'un de vos ingrédients n'existe pas, vérifiez l'orthrographe !")
                 }
                 self.navigateToRecipes(with: data)
+            case .failure(let error):
+                self.activityIndicator.dismiss(animated: true)
+                self.setAlertVc(with: error.description)
             }
-        case .failure(let error):
-            setAlertVc(with: error.description)
         }
     }
 }
