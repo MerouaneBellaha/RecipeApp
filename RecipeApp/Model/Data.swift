@@ -8,21 +8,20 @@
 
 import Foundation
 
-//struct ApiData: Decodable {
-//    
-//}
-
-struct ApiData: Decodable {
-    let main: Main
-    let weather: [Weather]
-    let name: String
+struct EdamamData: Decodable {
+    let q: String
+    let hits: [Hit]
 }
 
-struct Main: Decodable {
-    let temp: Double
+struct Hit: Decodable {
+    let recipe: Recipe
 }
 
-struct Weather: Decodable {
-    let id: Int
-    let description: String
+struct Recipe: Decodable {
+    let label: String
+    let image: String
+    let yield: Int
+
+    let ingredientLines: [String]
+    let totalTime: Int
 }

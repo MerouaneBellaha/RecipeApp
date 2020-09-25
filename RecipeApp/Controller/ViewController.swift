@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Alamofire
 
 final class ViewController: UIViewController {
 
@@ -20,50 +19,57 @@ final class ViewController: UIViewController {
 
     private var networkingService = NetworkingService()
 
-    var fakeList: [String] = []
+    var ingredients: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        networkingService.request(ingredients: String()) { [unowned self] result in self.manageResult(with: result)
-        }
-
     }
 
     @IBAction private func clearButtonTapped() {
-        fakeList.removeAll()
+        ingredients.removeAll()
         tableView.reloadData()
     }
 
     @IBAction private func addButtonTapped() {
         guard textField.text != "",
-              let ingredient = textField.text else {
+              let ingredients = textField.text else {
             setAlertVc(with: "Aucun aliment à ajouter !")
             return
         }
-        guard fakeList.count < 5 else {
-            setAlertVc(with: "Pas plus de 5 ingrédients !")
+        guard ingredients.count < 5 else {
+            setAlertVc(with: "Vous ne pouvez pas ajouter plus d'ingrédients !")
             return
         }
-        fakeList.append("🥕 \(ingredient)")
+        let ingredientsList = ingredients.transformToArray()
+        self.ingredients.append(contentsOf: ingredientsList)
         tableView.reloadData()
         textField.text?.removeAll()
     }
 
     @IBAction private func searchButtonTapped() {
+        let ingredients = self.ingredients.transformToString()
+        networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
+        }
+    }
+
+    private func navigateToRecipes(with data: EdamamData) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
+        nextViewController.recipesModel = data.hits.map { RecipeModel(hit: $0, query: data.q) }
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
-    private func manageResult(with result: Result<ApiData, RequestError>) {
+    private func manageResult(with result: Result<EdamamData, RequestError>) {
         switch result {
         case .success(let data):
             DispatchQueue.main.async {
-                print(data)
+                guard !data.hits.isEmpty else {
+                    return self.setAlertVc(with: "Au moins l'un de vos ingrédients n'existe pas, vérifiez l'orthrographe !")
+                }
+                self.navigateToRecipes(with: data)
             }
         case .failure(let error):
-            print(error.localizedDescription)
+            setAlertVc(with: error.description)
         }
     }
 }
@@ -71,7 +77,7 @@ final class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            fakeList.remove(at: indexPath.row)
+            ingredients.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
@@ -87,21 +93,18 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        clearAllView.isHidden = fakeList.count == 0 ? true : false
-        searchButton.isHidden = fakeList.count == 0 ? true : false
-        tableViewFooterLabel.text = fakeList.count == 0 ? .none : "Swipe left to remove an ingredient"
-        tableViewHeaderLabel.text = fakeList.count == 0 ? "Add some ingredients to start !" : "Your ingredients"
-        return fakeList.count
+        clearAllView.isHidden = ingredients.count == 0 ? true : false
+        searchButton.isHidden = ingredients.count == 0 ? true : false
+        tableViewFooterLabel.text = ingredients.count == 0 ? .none : "Swipe left to remove an ingredient"
+        tableViewHeaderLabel.text = ingredients.count == 0 ? "Add some ingredients to start !" : "Your ingredients"
+        return ingredients.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
-        cell.textLabel?.text = fakeList[indexPath.row]
+        cell.textLabel?.text = ingredients[indexPath.row]
         return cell
     }
-
-
-
 }
 
 extension NSLayoutConstraint {

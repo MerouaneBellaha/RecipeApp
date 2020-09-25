@@ -21,5 +21,3 @@ extension UIView {
         set { layer.masksToBounds = newValue }
     }
 }
-
-

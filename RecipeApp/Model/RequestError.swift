@@ -19,8 +19,6 @@ enum RequestError: Error {
             return "Incorrect response"
         case .undecodableData:
             return "Undecodable data"
-//        case .error:
-//            return "Error"
         }
     }
 }

@@ -16,16 +16,18 @@ final class NetworkingService {
         self.session = session
     }
 
-    func request(ingredients: String, callback: @escaping (Result<ApiData, RequestError>) -> Void) {
+    func request(ingredients: String, callback: @escaping (Result<EdamamData, RequestError>) -> Void) {
 
         guard let baseUrl = URL(string: "https://api.edamam.com/search?") else { return }
 
-        //        let parameters = apikey + ingredients ?
+        var parameters = [("q", ingredients)]
+        let keys = [("app_id", "297e5599"), ("app_key", "d1735c5df8f93d2d20c4849935735f5b")]
+        let range = [("from", "0"), ("to", "10")]
 
-//        let url = encode(baseUrl: baseUrl, with: parameters)
+        parameters.append(contentsOf: keys + range)
 
-        let url = encode(baseUrl: baseUrl, with: [(String, Any)]())
-
+        let url = encode(baseUrl: baseUrl, with: parameters)
+        print(url)
         session.request(with: url) { responseData in
             guard let data = responseData.data else {
                 callback(.failure(.noData))
@@ -37,7 +39,7 @@ final class NetworkingService {
                 return
             }
 
-            guard let responseDecoded = try? JSONDecoder().decode(ApiData.self, from: data) else {
+            guard let responseDecoded = try? JSONDecoder().decode(EdamamData.self, from: data) else {
                 callback(.failure(.undecodableData))
                 return
             }

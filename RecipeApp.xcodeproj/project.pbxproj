@@ -19,7 +19,11 @@
 		CB7280C2251DD73300370A42 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280C1251DD73300370A42 /* FakeResponseData.swift */; };
 		CB7280C9251DD78400370A42 /* MockNetworkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280C8251DD78400370A42 /* MockNetworkingSession.swift */; };
 		CB72812C251DF91B00370A42 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7280C7251DD74100370A42 /* Recipe.json */; };
-		CBA060FA2516DE5400AC03C4 /* UIViewController + setAlertVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA060F92516DE5400AC03C4 /* UIViewController + setAlertVc.swift */; };
+		CB728139251E41CE00370A42 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728138251E41CE00370A42 /* RecipeModel.swift */; };
+		CB72813E251E425800370A42 /* String+transformToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72813D251E425800370A42 /* String+transformToArray.swift */; };
+		CB728146251E428400370A42 /* Array+transformToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728145251E428400370A42 /* Array+transformToString.swift */; };
+		CB72814A251E446300370A42 /* String+asData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728149251E446300370A42 /* String+asData.swift */; };
+		CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */; };
 		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
 		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
@@ -58,7 +62,11 @@
 		CB7280C1251DD73300370A42 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		CB7280C7251DD74100370A42 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
 		CB7280C8251DD78400370A42 /* MockNetworkingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingSession.swift; sourceTree = "<group>"; };
-		CBA060F92516DE5400AC03C4 /* UIViewController + setAlertVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + setAlertVc.swift"; sourceTree = "<group>"; };
+		CB728138251E41CE00370A42 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		CB72813D251E425800370A42 /* String+transformToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+transformToArray.swift"; sourceTree = "<group>"; };
+		CB728145251E428400370A42 /* Array+transformToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+transformToString.swift"; sourceTree = "<group>"; };
+		CB728149251E446300370A42 /* String+asData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+asData.swift"; sourceTree = "<group>"; };
+		CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+setAlertVc.swift"; sourceTree = "<group>"; };
 		CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
 		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CBC325022515E9100007C146 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +136,16 @@
 			path = RecipeAppTests;
 			sourceTree = "<group>";
 		};
+		CB72813C251E421100370A42 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CB72813D251E425800370A42 /* String+transformToArray.swift */,
+				CB728145251E428400370A42 /* Array+transformToString.swift */,
+				CB728149251E446300370A42 /* String+asData.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CBC324F92515E90F0007C146 = {
 			isa = PBXGroup;
 			children = (
@@ -166,10 +184,12 @@
 		CBC3251C2515EBB50007C146 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB72813C251E421100370A42 /* Extensions */,
 				CBC3251F2515EC050007C146 /* NetworkingSession.swift */,
 				CB7280A5251DC6AF00370A42 /* NetworkingService.swift */,
 				CB7280AB251DC79700370A42 /* Data.swift */,
 				CB7280AE251DC7BF00370A42 /* RequestError.swift */,
+				CB728138251E41CE00370A42 /* RecipeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,7 +236,7 @@
 		CBC4D2C625175F010073FD6A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CBA060F92516DE5400AC03C4 /* UIViewController + setAlertVc.swift */,
+				CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -383,19 +403,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB72813E251E425800370A42 /* String+transformToArray.swift in Sources */,
 				CB1C0AF72517514D00BE9AD3 /* UIView+shadow.swift in Sources */,
-				CBA060FA2516DE5400AC03C4 /* UIViewController + setAlertVc.swift in Sources */,
+				CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */,
 				CBC3250A2515E9100007C146 /* ViewController.swift in Sources */,
 				CB1C0AFA2517518200BE9AD3 /* RecipeCell.swift in Sources */,
 				CBC4D2C3251756F40073FD6A /* RecipesTableViewController.swift in Sources */,
 				CBC325202515EC050007C146 /* NetworkingSession.swift in Sources */,
 				CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */,
+				CB728146251E428400370A42 /* Array+transformToString.swift in Sources */,
+				CB728139251E41CE00370A42 /* RecipeModel.swift in Sources */,
 				CB7280AC251DC79700370A42 /* Data.swift in Sources */,
 				CBC325062515E9100007C146 /* AppDelegate.swift in Sources */,
 				CB7280AF251DC7BF00370A42 /* RequestError.swift in Sources */,
 				CB7280A6251DC6AF00370A42 /* NetworkingService.swift in Sources */,
 				CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */,
 				CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */,
+				CB72814A251E446300370A42 /* String+asData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
