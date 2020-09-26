@@ -1,0 +1,17 @@
+{
+    "q": "carrot",
+    "hits": [
+        {
+            "recipe" : {
+                "label": "Carrot Cake",
+                "image": "https://imageURL",
+                "yield": 4,
+                "ingredientLines": [
+                        "Buy the carrot",
+                        "Cook the carrot",
+                ],
+                "totalTime": 120,
+            }
+        }
+    ]
+}

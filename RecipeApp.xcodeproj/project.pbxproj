@@ -12,10 +12,11 @@
 		CB1C0AF72517514D00BE9AD3 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C0AF62517514D00BE9AD3 /* UIView+shadow.swift */; };
 		CB1C0AFA2517518200BE9AD3 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C0AF82517518200BE9AD3 /* RecipeCell.swift */; };
 		CB1C0AFB2517518200BE9AD3 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1C0AF92517518200BE9AD3 /* RecipeCell.xib */; };
+		CB6DB238251F366F00097010 /* RecipeModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */; };
 		CB7280A6251DC6AF00370A42 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280A5251DC6AF00370A42 /* NetworkingService.swift */; };
 		CB7280AC251DC79700370A42 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280AB251DC79700370A42 /* Data.swift */; };
 		CB7280AF251DC7BF00370A42 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280AE251DC7BF00370A42 /* RequestError.swift */; };
-		CB7280B8251DD70200370A42 /* NetworkingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280B7251DD70200370A42 /* NetworkingServiceTest.swift */; };
+		CB7280B8251DD70200370A42 /* NetworkingServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280B7251DD70200370A42 /* NetworkingServiceTestCase.swift */; };
 		CB7280C2251DD73300370A42 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280C1251DD73300370A42 /* FakeResponseData.swift */; };
 		CB7280C9251DD78400370A42 /* MockNetworkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280C8251DD78400370A42 /* MockNetworkingSession.swift */; };
 		CB72812C251DF91B00370A42 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7280C7251DD74100370A42 /* Recipe.json */; };
@@ -53,11 +54,12 @@
 		CB1C0AF62517514D00BE9AD3 /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
 		CB1C0AF82517518200BE9AD3 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		CB1C0AF92517518200BE9AD3 /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModelTestCase.swift; sourceTree = "<group>"; };
 		CB7280A5251DC6AF00370A42 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		CB7280AB251DC79700370A42 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		CB7280AE251DC7BF00370A42 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		CB7280B5251DD70200370A42 /* RecipeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB7280B7251DD70200370A42 /* NetworkingServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingServiceTest.swift; sourceTree = "<group>"; };
+		CB7280B7251DD70200370A42 /* NetworkingServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingServiceTestCase.swift; sourceTree = "<group>"; };
 		CB7280B9251DD70200370A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB7280C1251DD73300370A42 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		CB7280C7251DD74100370A42 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
@@ -124,13 +126,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		CB7280B6251DD70200370A42 /* RecipeAppTests */ = {
+		CB6DB229251F307D00097010 /* NetworkingTest */ = {
 			isa = PBXGroup;
 			children = (
-				CB7280B7251DD70200370A42 /* NetworkingServiceTest.swift */,
+				CB7280B7251DD70200370A42 /* NetworkingServiceTestCase.swift */,
 				CB7280C1251DD73300370A42 /* FakeResponseData.swift */,
 				CB7280C7251DD74100370A42 /* Recipe.json */,
 				CB7280C8251DD78400370A42 /* MockNetworkingSession.swift */,
+			);
+			path = NetworkingTest;
+			sourceTree = "<group>";
+		};
+		CB6DB22A251F30C100097010 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CBC3251F2515EC050007C146 /* NetworkingSession.swift */,
+				CB7280A5251DC6AF00370A42 /* NetworkingService.swift */,
+				CB7280AB251DC79700370A42 /* Data.swift */,
+				CB7280AE251DC7BF00370A42 /* RequestError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CB7280B6251DD70200370A42 /* RecipeAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */,
+				CB6DB229251F307D00097010 /* NetworkingTest */,
 				CB7280B9251DD70200370A42 /* Info.plist */,
 			);
 			path = RecipeAppTests;
@@ -184,11 +206,8 @@
 		CBC3251C2515EBB50007C146 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB6DB22A251F30C100097010 /* Networking */,
 				CB72813C251E421100370A42 /* Extensions */,
-				CBC3251F2515EC050007C146 /* NetworkingSession.swift */,
-				CB7280A5251DC6AF00370A42 /* NetworkingService.swift */,
-				CB7280AB251DC79700370A42 /* Data.swift */,
-				CB7280AE251DC7BF00370A42 /* RequestError.swift */,
 				CB728138251E41CE00370A42 /* RecipeModel.swift */,
 			);
 			path = Model;
@@ -394,7 +413,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB7280C9251DD78400370A42 /* MockNetworkingSession.swift in Sources */,
-				CB7280B8251DD70200370A42 /* NetworkingServiceTest.swift in Sources */,
+				CB6DB238251F366F00097010 /* RecipeModelTestCase.swift in Sources */,
+				CB7280B8251DD70200370A42 /* NetworkingServiceTestCase.swift in Sources */,
 				CB7280C2251DD73300370A42 /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,7 +643,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8M973GY56;
 				INFOPLIST_FILE = RecipeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,7 +663,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8M973GY56;
 				INFOPLIST_FILE = RecipeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

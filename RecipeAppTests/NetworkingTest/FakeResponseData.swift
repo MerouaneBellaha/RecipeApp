@@ -8,13 +8,7 @@
 
 import Foundation
 
-//class RecipeError: Error {} //
-
 class FakeResponseData {
-
-    // MARK: - Error
-
-//    static let error = RecipeError() //
 
     // MARK: - Data
 
