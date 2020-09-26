@@ -12,19 +12,7 @@ import XCTest
 class NetworkingServiceTest: XCTestCase {
 
     var networkingService: NetworkingService!
-    var requestResult: (ApiData?, Error?)
-
-    // setup
-
-//    func testRequestShouldPostFailureIfError() {
-//        performRequest(data: nil, response: nil, error: FakeResponseData.error)
-//        testRequestResult(description: "Error")
-//    }
-
-//    func testRequestShouldPostFailureIfError() {
-//        performRequest(data: nil, response: nil, error: FakeResponseData.error)
-//        testRequestResult(description: "Can't reach the server, please retry.")
-//    }
+    var requestResult: (EdamamData?, Error?)
 
     func testRequestShouldPostFailureIfNoData() {
         performRequest(data: nil, response: nil, error: nil)
@@ -51,13 +39,11 @@ class NetworkingServiceTest: XCTestCase {
     }
 
     private func performRequest(data: Foundation.Data?, response: HTTPURLResponse?, error: Error?) {
-
         let session = MockNetworkingSession(fakeResponse: FakeResponse(response: response, data: data))
         networkingService = NetworkingService(session: session)
-        networkingService.request(ingredients: "") { self.manageResult(with: $0) }
-//        let URLSession = URLSessionFake(data: data, response: response, error: error)
-//        httpClient = HTTPClient(httpEngine: HTTPEngine(session: URLSession))
-//        httpClient.request(baseUrl: K.baseURLweather) { self.manageResult(with: $0) }
+        networkingService.request(ingredients: "") { [unowned self] result in
+            self.manageResult(with: result)
+        }
     }
 
     private func testRequestResult(description: String) {
@@ -67,18 +53,23 @@ class NetworkingServiceTest: XCTestCase {
     }
 
     private func testRetrivedData() {
-        let id = 804
-        let description = "overcast clouds"
-        let temp = 19.11
-        let name = "London"
+        let query = "carrot"
+        let recipeLabel = "Carrot Cake"
+        let imageURL = "https://imageURL"
+        let yield = 4
+        let cookingInstruction = ["Buy the carrot",
+                                  "Cook the carot"]
+        let totalTime = 120
 
-        XCTAssertEqual(requestResult.0?.weather.first?.id, id)
-        XCTAssertEqual(requestResult.0?.weather.first?.description, description)
-        XCTAssertEqual(requestResult.0?.main.temp, temp)
-        XCTAssertEqual(requestResult.0?.name, name)
+        XCTAssertEqual(requestResult.0?.q, query)
+        XCTAssertEqual(requestResult.0?.hits[0].recipe.label, recipeLabel)
+        XCTAssertEqual(requestResult.0?.hits[0].recipe.image, imageURL)
+        XCTAssertEqual(requestResult.0?.hits[0].recipe.yield, yield)
+        XCTAssertEqual(requestResult.0?.hits[0].recipe.ingredientLines, cookingInstruction)
+        XCTAssertEqual(requestResult.0?.hits[0].recipe.totalTime, totalTime)
     }
 
-    private func manageResult(with result: Result<ApiData, RequestError>) {
+    private func manageResult(with result: Result<EdamamData, RequestError>) {
         switch result {
         case .failure(let error):
             requestResult = (nil, error)
@@ -92,25 +83,4 @@ class NetworkingServiceTest: XCTestCase {
         networkingService = nil
         requestResult = (nil, nil)
     }
-//
-//    override func setUpWithError() throws {
-//        // Put setup code here. This method is called before the invocation of each test method in the class.
-//    }
-//
-//    override func tearDownWithError() throws {
-//        // Put teardown code here. This method is called after the invocation of each test method in the class.
-//    }
-//
-//    func testExample() throws {
-//        // This is an example of a functional test case.
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//    }
-//
-//    func testPerformanceExample() throws {
-//        // This is an example of a performance test case.
-//        measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
-
 }

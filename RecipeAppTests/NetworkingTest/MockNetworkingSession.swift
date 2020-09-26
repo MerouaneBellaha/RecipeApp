@@ -13,7 +13,6 @@ import Alamofire
 struct FakeResponse {
     var response: HTTPURLResponse?
     var data: Foundation.Data?
-//    var error: Error?
 }
 
 final class MockNetworkingSession: AlamoSession {
@@ -27,7 +26,6 @@ final class MockNetworkingSession: AlamoSession {
     func request(with url: URL, callback: @escaping (DataResponse<Any>) -> Void) {
         let httpResponse = fakeResponse.response
         let data = fakeResponse.data
-//        let error = fakeResponse.error
         let result = Request.serializeResponseJSON(options: .allowFragments, response: httpResponse, data: data, error: nil)
         let urlRequest = URLRequest(url: URL(string: "https://api.edamam.com")!)
         callback(DataResponse(request: urlRequest, response: httpResponse, data: data, result: result))

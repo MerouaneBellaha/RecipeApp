@@ -124,13 +124,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		CB7280B6251DD70200370A42 /* RecipeAppTests */ = {
+		CB6DB229251F307D00097010 /* NetworkingTest */ = {
 			isa = PBXGroup;
 			children = (
 				CB7280B7251DD70200370A42 /* NetworkingServiceTest.swift */,
 				CB7280C1251DD73300370A42 /* FakeResponseData.swift */,
 				CB7280C7251DD74100370A42 /* Recipe.json */,
 				CB7280C8251DD78400370A42 /* MockNetworkingSession.swift */,
+			);
+			path = NetworkingTest;
+			sourceTree = "<group>";
+		};
+		CB7280B6251DD70200370A42 /* RecipeAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB6DB229251F307D00097010 /* NetworkingTest */,
 				CB7280B9251DD70200370A42 /* Info.plist */,
 			);
 			path = RecipeAppTests;
@@ -623,7 +631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8M973GY56;
 				INFOPLIST_FILE = RecipeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,7 +651,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8M973GY56;
 				INFOPLIST_FILE = RecipeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

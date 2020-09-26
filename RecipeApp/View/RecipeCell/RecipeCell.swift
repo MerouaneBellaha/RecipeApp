@@ -30,7 +30,7 @@ class RecipeCell: UITableViewCell {
             searchedIngredients.text = recipe?.searchedIngredients
 
             let options = setPresentationOption()
-            rightDetailImage.image = UIImage(systemName: options.0)
+//            rightDetailImage.image = UIImage(systemName: options.0)
             rightDetailText.text = options.1
             yield.isHidden = options.2
         }
