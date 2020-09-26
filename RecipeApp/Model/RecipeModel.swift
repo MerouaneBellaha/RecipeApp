@@ -37,7 +37,7 @@ struct RecipeModel {
 
     private func displayStringFormat(from minutes:Int) -> String {
         let (h, m) = minutesToHoursMinutes(minutes: minutes)
-        return h == 0 ? ("\(m)m") : ("\(h) h \(m) m")
+        return h == 0 ? ("\(m)m") : ("\(h)h \(m)m")
     }
 }
 

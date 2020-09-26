@@ -53,7 +53,7 @@ class RecipeModelTestCase: XCTestCase {
     }
 
     func testTimeStringFormattingWhenTimeIsNot0() {
-        let expectedResult = "2 h 0 m"
+        let expectedResult = "2h 0m"
 
         XCTAssertEqual(recipeModel.time, expectedResult)
     }
@@ -99,17 +99,4 @@ class RecipeModelTestCase: XCTestCase {
         hit = nil
         recipeModel = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

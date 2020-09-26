@@ -23,7 +23,7 @@ class RecipesTableViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: "recipeCell")
     }
 
-    // MARK: - Table view data source
+    // MARK: - TableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipesModel.count
@@ -31,22 +31,21 @@ class RecipesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
-        cell.colorTheme = UIColor().getColorThemeName(from: indexPath.row)
+        cell.colorTheme = UIColor().getColorTheme(from: indexPath.row)
         cell.recipe = recipesModel[indexPath.row]
+        cell.selectionStyle = .none
         return cell
 
     }
-}
 
-extension UIColor {
-    func getColorThemeName(from index: Int) -> UIColor {
-        let step = reduce(index, by: 4)
-        let colors = [#colorLiteral(red: 0.4500253201, green: 0.627276659, blue: 0.3985392451, alpha: 1), #colorLiteral(red: 0.2005394399, green: 0.3820231557, blue: 0.7559244037, alpha: 1), #colorLiteral(red: 0.9382540584, green: 0.4337904453, blue: 0.2775209248, alpha: 1), #colorLiteral(red: 1, green: 0.7285203338, blue: 0.3738058209, alpha: 1)]
-        return colors[step]
+    // MARK: - TableViewDelegate
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
+        nextViewController.recipeModel = recipesModel[indexPath.row]
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
-    func reduce(_ num: Int, by maxRange: Int) -> Int {
-        return num >= maxRange ? reduce(num-maxRange, by: maxRange) : num
-    }
 }
 
