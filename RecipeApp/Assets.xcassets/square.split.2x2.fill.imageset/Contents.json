@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "square.split.2x2.fill.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

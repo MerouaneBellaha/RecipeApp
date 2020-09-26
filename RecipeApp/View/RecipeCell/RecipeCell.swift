@@ -29,8 +29,8 @@ class RecipeCell: UITableViewCell {
             recipeName.text = recipe?.name
             searchedIngredients.text = recipe?.searchedIngredients
 
-            let options = setPresentationOption()
-//            rightDetailImage.image = UIImage(systemName: options.0)
+            guard let options = recipe?.displayOptions else { return }
+            rightDetailImage.image = UIImage(named: options.0)
             rightDetailText.text = options.1
             yield.isHidden = options.2
         }
@@ -43,11 +43,5 @@ class RecipeCell: UITableViewCell {
             }
             coloredView.backgroundColor = colorTheme
         }
-    }
-
-    func setPresentationOption() -> (String, String?, Bool) {
-        recipe?.time == nil ?
-            ("square.split.2x2.fill", recipe?.yield, true) :
-            ("stopwatch.fill", recipe?.time, false)
     }
 }

@@ -1,6 +1,6 @@
 //
-//  RecipeAppTests.swift
-//  RecipeAppTests
+//  NetworkingServiceTestCase.swift
+//  NetworkingServiceTestCase
 //
 //  Created by Merouane Bellaha on 25/09/2020.
 //  Copyright © 2020 Merouane Bellaha. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import RecipeApp
 
-class NetworkingServiceTest: XCTestCase {
+class NetworkingServiceTestCase: XCTestCase {
 
     var networkingService: NetworkingService!
     var requestResult: (EdamamData?, Error?)
@@ -58,7 +58,7 @@ class NetworkingServiceTest: XCTestCase {
         let imageURL = "https://imageURL"
         let yield = 4
         let cookingInstruction = ["Buy the carrot",
-                                  "Cook the carot"]
+                                  "Cook the carrot"]
         let totalTime = 120
 
         XCTAssertEqual(requestResult.0?.q, query)

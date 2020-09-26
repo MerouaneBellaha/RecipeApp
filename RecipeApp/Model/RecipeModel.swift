@@ -25,13 +25,19 @@ struct RecipeModel {
             nil :
             displayStringFormat(from: hit.recipe.totalTime)
     }
+    var displayOptions: (String, String?, Bool) {
+        time == nil ?
+            ("square.split.2x2.fill", yield, true) :
+            ("stopwatch.fill", time, false)
+    }
     
-    func minutesToHoursMinutes(minutes : Int) -> (Int, Int) {
+    private func minutesToHoursMinutes(minutes : Int) -> (Int, Int) {
         return (minutes / 60, (minutes % 60))
     }
 
-    func displayStringFormat(from minutes:Int) -> String {
+    private func displayStringFormat(from minutes:Int) -> String {
         let (h, m) = minutesToHoursMinutes(minutes: minutes)
-        return h == 0 ? ("\(m)m") : ("\(h)h \(m)m")
+        return h == 0 ? ("\(m)m") : ("\(h) h \(m) m")
     }
 }
+
