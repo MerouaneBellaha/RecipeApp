@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fKk-hc-sLG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o5E-9e-7UV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -75,7 +75,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sbq-eW-vuI">
-                                <rect key="frame" x="20" y="330" width="374" height="532"/>
+                                <rect key="frame" x="20" y="330" width="374" height="483"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="kt4-hO-Hea">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -156,7 +156,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqc-HI-Vgq">
-                                <rect key="frame" x="314" y="762" width="60" height="60"/>
+                                <rect key="frame" x="314" y="713" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.48627450979999998" green="0.65098039220000004" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="LMn-Yo-cXd"/>
@@ -222,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="139"/>
+            <point key="canvasLocation" x="949" y="-196"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="aE9-tH-4Gd">
@@ -271,7 +271,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LrQ-18-clY">
-                                <rect key="frame" x="20" y="198.5" width="374" height="663.5"/>
+                                <rect key="frame" x="20" y="198.5" width="374" height="614.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YMA-Ud-3K1">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="210.5"/>
@@ -302,7 +302,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-SS-8w3">
-                                        <rect key="frame" x="0.0" y="271" width="374" height="392.5"/>
+                                        <rect key="frame" x="0.0" y="271" width="374" height="343.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients details :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z56-K3-whm">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -378,10 +378,52 @@
             </objects>
             <point key="canvasLocation" x="2657.971014492754" y="138.61607142857142"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="aFA-7z-op4">
+            <objects>
+                <tabBarController id="o5E-9e-7UV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TtO-Ps-89R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fKk-hc-sLG" kind="relationship" relationship="viewControllers" id="Saz-tW-jdU"/>
+                        <segue destination="Dtp-uP-1MO" kind="relationship" relationship="viewControllers" id="tAr-ig-jhW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhu-Bc-0rb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-871" y="139"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="NEa-mf-YSl">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4O-eS-xje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="Dtp-uP-1MO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="cdt-zh-vsJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7pn-Z4-IPl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aWn-Lv-TDz" kind="relationship" relationship="rootViewController" id="aMM-MA-IcA"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="106" y="511"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="qe3-dx-fei">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fKk-hc-sLG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="FwM-i5-KZN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="s1p-RG-J0D">
                         <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
@@ -400,9 +442,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Si3-71-ll4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="138.61607142857142"/>
+            <point key="canvasLocation" x="107" y="-196"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aMM-MA-IcA"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

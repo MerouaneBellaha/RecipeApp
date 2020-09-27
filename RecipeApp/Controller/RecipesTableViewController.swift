@@ -10,11 +10,29 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
 
-    var recipesModel: [RecipeModel] = []
+    var recipesModel: [RecipeModel] = [] { didSet { tableView.reloadData() }}
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRecipeCell()
+
+
+
+        let hit = Hit(recipe: Recipe(label: "Carrot Cake",
+                                     image: "https://www.edamam.com/web-img/6b6/6b6d059217d67cb9b454edd6cded1144.JPG",
+                                     yield: 4,
+                                     ingredientLines: [
+                                        "Buy the carrot",
+                                        "Cook the carrot",
+                                     ],
+                                     totalTime: 120)
+        )
+
+        guard recipesModel.isEmpty else { return }
+        title = "Your recipes"
+        recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
+        recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
+        recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
         
     }
 
