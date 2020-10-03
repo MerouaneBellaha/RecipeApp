@@ -16,13 +16,13 @@ class RecipeModelTestCase: XCTestCase {
 
     override func setUpWithError() throws {
         hit = setUpDefaultHit(totalTime: 120)
-        recipeModel = RecipeModel(hit: hit, query: "carrot,pistache")
+        recipeModel = RecipeModel(hit: hit)
     }
 
-    func testSearchedIngredientsStringFormatting() {
-        let expectedResult = "carrot, pistache"
+    func testOverviewIngredientsStringFormatting() {
+        let expectedResult = "Buy the carrot, Cook the carrot"
 
-        XCTAssertEqual(recipeModel.searchedIngredients, expectedResult)
+        XCTAssertEqual(recipeModel.ingredientsOverview, expectedResult)
     }
 
     func testNameStringFormatting() {
@@ -59,7 +59,7 @@ class RecipeModelTestCase: XCTestCase {
     }
 
     func testTimeStringFormattingWhenTimeIs0() {
-        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0), query: "")
+        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0))
 
         let expectedResult: String? = nil
 
@@ -75,7 +75,7 @@ class RecipeModelTestCase: XCTestCase {
     }
 
     func testDisplayOptionsTupleFormattingWhenTimeIstNil() {
-        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0), query: "")
+        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0))
 
         let expectedResult = ("square.split.2x2.fill", recipeModel.yield, true)
 

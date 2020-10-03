@@ -8,17 +8,17 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var tableViewFooterLabel: UILabel!
     @IBOutlet private weak var textField: CustomTextField!
     @IBOutlet private weak var tableViewHeaderLabel: UILabel!
     @IBOutlet private weak var searchButton: UIButton!
-    @IBOutlet private weak var clearAllView: UIStackView! // renaem
+    @IBOutlet private weak var clearButton: UIStackView!
 
     private var networkingService = NetworkingService()
-    private var activityIndicator: UIAlertController! // rename
+    private var loader: UIAlertController!
 
     var ingredients: [String] = []
 
@@ -41,19 +41,18 @@ final class ViewController: UIViewController {
             setAlertVc(with: "Vous ne pouvez pas ajouter plus d'ingrédients !")
             return
         }
-        let ingredientsList = ingredients.transformToArray()
+        let ingredientsList = ingredients.transformToArray
         self.ingredients.append(contentsOf: ingredientsList)
         tableView.reloadData()
         textField.text?.removeAll()
     }
 
     @IBAction private func searchButtonTapped() {
-        let ingredients = self.ingredients.transformToString() // dans request ?
         setActivityAlert(withTitle: "Please wait !",
-                         message: "We're getting your recipes !") { activityIndicator in
-            self.networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
+                         message: "We're getting your recipes !") { loader in
+            self.networkingService.request(ingredientsList: self.ingredients) { [unowned self] result in self.manageResult(with: result)
             }
-            self.activityIndicator = activityIndicator
+            self.loader = loader
         }
 
     }
@@ -61,9 +60,9 @@ final class ViewController: UIViewController {
     private func navigateToRecipes(with data: EdamamData) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
-        nextViewController.recipesModel = data.hits.map { RecipeModel(hit: $0, query: data.q) }
+        nextViewController.recipesModel = data.hits.map { RecipeModel(hit: $0) }
         navigationController?.pushViewController(nextViewController, animated: true)
-        activityIndicator.dismiss(animated: false)
+        loader.dismiss(animated: false)
     }
 
     private func manageResult(with result: Result<EdamamData, RequestError>) {
@@ -71,19 +70,19 @@ final class ViewController: UIViewController {
             switch result {
             case .success(let data):
                 guard !data.hits.isEmpty else {
-                    self.activityIndicator.dismiss(animated: true)
+                    self.loader.dismiss(animated: true)
                     return self.setAlertVc(with: "Au moins l'un de vos ingrédients n'existe pas, vérifiez l'orthrographe !")
                 }
                 self.navigateToRecipes(with: data)
             case .failure(let error):
-                self.activityIndicator.dismiss(animated: true)
+                self.loader.dismiss(animated: true)
                 self.setAlertVc(with: error.description)
             }
         }
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             ingredients.remove(at: indexPath.row)
@@ -100,9 +99,9 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        clearAllView.isHidden = ingredients.count == 0 ? true : false
+        clearButton.isHidden = ingredients.count == 0 ? true : false
         searchButton.isHidden = ingredients.count == 0 ? true : false
         tableViewFooterLabel.text = ingredients.count == 0 ? .none : "Swipe left to remove an ingredient"
         tableViewHeaderLabel.text = ingredients.count == 0 ? "Add some ingredients to start !" : "Your ingredients"

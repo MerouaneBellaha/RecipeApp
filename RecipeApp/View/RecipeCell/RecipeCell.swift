@@ -13,7 +13,7 @@ class RecipeCell: UITableViewCell {
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var yield: UILabel!
     @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var searchedIngredients: UILabel!
+    @IBOutlet weak var ingredientsOverview: UILabel!
     @IBOutlet weak var coloredView: UIView!
     @IBOutlet weak var rightDetailImage: UIImageView!
     @IBOutlet weak var rightDetailText: UILabel!
@@ -27,7 +27,7 @@ class RecipeCell: UITableViewCell {
 
             yield.text = recipe?.yield
             recipeName.text = recipe?.name
-            searchedIngredients.text = recipe?.searchedIngredients
+            ingredientsOverview.text = recipe?.ingredientsOverview
 
             guard let options = recipe?.displayOptions else { return }
             rightDetailImage.image = UIImage(named: options.0)
@@ -38,7 +38,7 @@ class RecipeCell: UITableViewCell {
 
     var colorTheme: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1) {
         didSet {
-            [yield, recipeName, searchedIngredients].forEach { label in
+            [yield, recipeName, ingredientsOverview].forEach { label in
                 label?.textColor = colorTheme
             }
             coloredView.backgroundColor = colorTheme

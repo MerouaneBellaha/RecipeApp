@@ -12,8 +12,6 @@ class RecipesTableViewController: UITableViewController {
 
     var recipesModel: [RecipeModel] = [] { didSet { tableView.reloadData() }}
 
-//    var coreDataManager: CoreDataManager? { didSet { print("COREDATASET") }}
-    // lazy ?
     var coreDataManager: CoreDataManager?
 
     override func viewDidLoad() {
@@ -23,7 +21,6 @@ class RecipesTableViewController: UITableViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
 
-//        coreDataManager.testprint()
 
         let hit = Hit(recipe: Recipe(label: "Carrot Cake",
                                      image: "https://www.edamam.com/web-img/6b6/6b6d059217d67cb9b454edd6cded1144.JPG",
@@ -38,9 +35,9 @@ class RecipesTableViewController: UITableViewController {
         guard recipesModel.isEmpty else { return }
 
         title = "Your recipes"
-        recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
-        recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
-        recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
+        recipesModel.append(RecipeModel(hit: hit))
+        recipesModel.append(RecipeModel(hit: hit))
+        recipesModel.append(RecipeModel(hit: hit))
         
     }
 
@@ -73,6 +70,5 @@ class RecipesTableViewController: UITableViewController {
         nextViewController.recipeModel = recipesModel[indexPath.row]
         navigationController?.pushViewController(nextViewController, animated: true)
     }
-
 }
 

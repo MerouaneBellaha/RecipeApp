@@ -10,12 +10,8 @@ import Foundation
 
 struct RecipeModel {
     let hit: Hit
-    let query: String
 
-    var searchedIngredients: String {
-        query.components(separatedBy: ",")
-            .joined(separator: ", ")
-    }
+    var ingredientsOverview: String { hit.recipe.ingredientLines.joined(separator: ", ") }
     var name: String { hit.recipe.label }
     var image: Data? { hit.recipe.image.asData }
     var yield: String { String("\(hit.recipe.yield) parts") }

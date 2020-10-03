@@ -170,11 +170,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="coloredView" destination="bOI-ac-TfG" id="aDo-H5-2hS"/>
+                <outlet property="ingredientsOverview" destination="xPK-sg-RhU" id="lho-xa-8vO"/>
                 <outlet property="picture" destination="Q1P-pU-Wnt" id="AFm-ts-ics"/>
                 <outlet property="recipeName" destination="3mh-iJ-7Ue" id="WGf-HH-atm"/>
                 <outlet property="rightDetailImage" destination="ScN-ac-q8B" id="Fzn-Zs-g4c"/>
                 <outlet property="rightDetailText" destination="WvD-Q2-fHg" id="gKc-GZ-q5v"/>
-                <outlet property="searchedIngredients" destination="xPK-sg-RhU" id="lho-xa-8vO"/>
                 <outlet property="yield" destination="dYz-cQ-kdV" id="aMO-SM-780"/>
             </connections>
             <point key="canvasLocation" x="227.536231884058" y="140.29017857142856"/>

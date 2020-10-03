@@ -12,7 +12,7 @@
         <!--RecipeApp 🥕-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
                         <barButtonItem key="backBarButtonItem" title="back" id="ANk-40-QD1"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="clearAllView" destination="y3m-pt-Uv1" id="Mu5-l2-aw5"/>
+                        <outlet property="clearButton" destination="y3m-pt-Uv1" id="Mu5-l2-aw5"/>
                         <outlet property="searchButton" destination="Qqc-HI-Vgq" id="Ugz-VD-ihf"/>
                         <outlet property="tableView" destination="sbq-eW-vuI" id="pwY-Dl-EAE"/>
                         <outlet property="tableViewFooterLabel" destination="ukp-rx-ypY" id="jxF-U5-JMA"/>
@@ -399,7 +399,6 @@
         <!--Item-->
         <scene sceneID="NEa-mf-YSl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B4O-eS-xje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="Dtp-uP-1MO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="cdt-zh-vsJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7pn-Z4-IPl">
@@ -416,6 +415,7 @@
                         <segue destination="aWn-Lv-TDz" kind="relationship" relationship="rootViewController" id="aMM-MA-IcA"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4O-eS-xje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="106" y="511"/>
         </scene>
@@ -426,7 +426,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="FwM-i5-KZN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="s1p-RG-J0D">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -446,7 +446,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aMM-MA-IcA"/>
+        <segue reference="E2n-e2-66G"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

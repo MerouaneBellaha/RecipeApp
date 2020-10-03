@@ -9,7 +9,7 @@
 import Foundation
 
 extension Array where Element == String {
-    func transformToString() -> String {
+    var transformToString: String {
         return self.map { $0.replacingOccurrences(of: "🥕 ", with: "") }
             .joined(separator: ",")
     }

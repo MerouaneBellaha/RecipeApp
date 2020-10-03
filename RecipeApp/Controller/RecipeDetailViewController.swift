@@ -15,8 +15,10 @@ final class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var cookingTimeLabel: UILabel!
     @IBOutlet weak var yieldsLabel: UILabel!
 
+    var coreDataManager: CoreDataManager?
     var recipeModel: RecipeModel!
     var colorTheme: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,10 @@ final class RecipeDetailViewController: UIViewController {
 
         cookingTimeLabel.text = recipeModel.time == nil ? "" : "cooking time : \(recipeModel.time ?? "N/A")"
         yieldsLabel.text = recipeModel.yield
+
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

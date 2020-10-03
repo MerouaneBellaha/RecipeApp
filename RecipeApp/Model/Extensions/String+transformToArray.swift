@@ -9,13 +9,7 @@
 import Foundation
 
 extension String {
-    func transformToArray() -> [String] {
-        return self.components(separatedBy: .punctuationCharacters)
-            .map { $0.trimmingCharacters(in: .whitespaces)}
-            .map { "🥕 \($0)"}
-    }
-
-    var test: [String] {
+    var transformToArray: [String] {
         return self.components(separatedBy: .punctuationCharacters)
             .map { $0.trimmingCharacters(in: .whitespaces)}
             .map { "🥕 \($0)"}

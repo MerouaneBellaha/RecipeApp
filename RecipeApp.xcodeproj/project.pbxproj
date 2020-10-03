@@ -32,7 +32,7 @@
 		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
 		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
-		CBC3250A2515E9100007C146 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* ViewController.swift */; };
+		CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* HomeViewController.swift */; };
 		CBC3250D2515E9100007C146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC3250B2515E9100007C146 /* Main.storyboard */; };
 		CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */; };
 		CBC325122515E9100007C146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC325112515E9100007C146 /* Assets.xcassets */; };
@@ -81,7 +81,7 @@
 		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CBC325022515E9100007C146 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC325052515E9100007C146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBC325092515E9100007C146 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBC325092515E9100007C146 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CBC3250C2515E9100007C146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeApp.xcdatamodel; sourceTree = "<group>"; };
 		CBC325112515E9100007C146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		CBC3251E2515EBD70007C146 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CBC325092515E9100007C146 /* ViewController.swift */,
+				CBC325092515E9100007C146 /* HomeViewController.swift */,
 				CBC4D2C2251756F40073FD6A /* RecipesTableViewController.swift */,
 				CB6DB24C251F511F00097010 /* RecipeDetailViewController.swift */,
 				CBC4D2C625175F010073FD6A /* Extensions */,
@@ -447,7 +447,7 @@
 				CB72813E251E425800370A42 /* String+transformToArray.swift in Sources */,
 				CB1C0AF72517514D00BE9AD3 /* UIView+shadow.swift in Sources */,
 				CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */,
-				CBC3250A2515E9100007C146 /* ViewController.swift in Sources */,
+				CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */,
 				CB1C0AFA2517518200BE9AD3 /* RecipeCell.swift in Sources */,
 				CB6DB24D251F511F00097010 /* RecipeDetailViewController.swift in Sources */,
 				CBC4D2C3251756F40073FD6A /* RecipesTableViewController.swift in Sources */,
