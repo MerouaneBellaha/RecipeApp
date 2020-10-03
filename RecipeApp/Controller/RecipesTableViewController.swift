@@ -12,11 +12,18 @@ class RecipesTableViewController: UITableViewController {
 
     var recipesModel: [RecipeModel] = [] { didSet { tableView.reloadData() }}
 
+//    var coreDataManager: CoreDataManager? { didSet { print("COREDATASET") }}
+    // lazy ?
+    var coreDataManager: CoreDataManager?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRecipeCell()
 
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
 
+//        coreDataManager.testprint()
 
         let hit = Hit(recipe: Recipe(label: "Carrot Cake",
                                      image: "https://www.edamam.com/web-img/6b6/6b6d059217d67cb9b454edd6cded1144.JPG",
@@ -29,6 +36,7 @@ class RecipesTableViewController: UITableViewController {
         )
 
         guard recipesModel.isEmpty else { return }
+
         title = "Your recipes"
         recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
         recipesModel.append(RecipeModel(hit: hit, query: "jambon"))
@@ -49,7 +57,7 @@ class RecipesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
-        cell.colorTheme = UIColor().getColorTheme(from: indexPath.row)
+        cell.colorTheme = .getColorTheme(from: indexPath.row)
         cell.recipe = recipesModel[indexPath.row]
         cell.selectionStyle = .none
         return cell
@@ -63,7 +71,7 @@ class RecipesTableViewController: UITableViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
         nextViewController.colorTheme = (tableView.cellForRow(at: indexPath) as! RecipeCell).colorTheme
         nextViewController.recipeModel = recipesModel[indexPath.row]
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 
 }

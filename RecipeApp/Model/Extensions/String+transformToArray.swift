@@ -14,4 +14,10 @@ extension String {
             .map { $0.trimmingCharacters(in: .whitespaces)}
             .map { "🥕 \($0)"}
     }
+
+    var test: [String] {
+        return self.components(separatedBy: .punctuationCharacters)
+            .map { $0.trimmingCharacters(in: .whitespaces)}
+            .map { "🥕 \($0)"}
+    }
 }

@@ -12,6 +12,8 @@
 		CB1C0AF72517514D00BE9AD3 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C0AF62517514D00BE9AD3 /* UIView+shadow.swift */; };
 		CB1C0AFA2517518200BE9AD3 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C0AF82517518200BE9AD3 /* RecipeCell.swift */; };
 		CB1C0AFB2517518200BE9AD3 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1C0AF92517518200BE9AD3 /* RecipeCell.xib */; };
+		CB3B3C5125208E60007C6EDB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B3C4925208D5D007C6EDB /* CoreDataManager.swift */; };
+		CB3B3C5425208E63007C6EDB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B3C4825208D5A007C6EDB /* CoreDataStack.swift */; };
 		CB6DB238251F366F00097010 /* RecipeModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */; };
 		CB6DB249251F501E00097010 /* UIColor+getColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB248251F501E00097010 /* UIColor+getColorTheme.swift */; };
 		CB6DB24D251F511F00097010 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB24C251F511F00097010 /* RecipeDetailViewController.swift */; };
@@ -56,6 +58,8 @@
 		CB1C0AF62517514D00BE9AD3 /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
 		CB1C0AF82517518200BE9AD3 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		CB1C0AF92517518200BE9AD3 /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		CB3B3C4825208D5A007C6EDB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		CB3B3C4925208D5D007C6EDB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModelTestCase.swift; sourceTree = "<group>"; };
 		CB6DB248251F501E00097010 /* UIColor+getColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+getColorTheme.swift"; sourceTree = "<group>"; };
 		CB6DB24C251F511F00097010 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,15 @@
 				70F3EECA1177C4D68EF9B64D /* Pods-RecipeAppTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CB3B3C4725208D44007C6EDB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CB3B3C4925208D5D007C6EDB /* CoreDataManager.swift */,
+				CB3B3C4825208D5A007C6EDB /* CoreDataStack.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		CB6DB229251F307D00097010 /* NetworkingTest */ = {
@@ -210,6 +223,7 @@
 		CBC3251C2515EBB50007C146 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB3B3C4725208D44007C6EDB /* CoreData */,
 				CB6DB22A251F30C100097010 /* Networking */,
 				CB72813C251E421100370A42 /* Extensions */,
 				CB728138251E41CE00370A42 /* RecipeModel.swift */,
@@ -429,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB3B3C5425208E63007C6EDB /* CoreDataStack.swift in Sources */,
 				CB72813E251E425800370A42 /* String+transformToArray.swift in Sources */,
 				CB1C0AF72517514D00BE9AD3 /* UIView+shadow.swift in Sources */,
 				CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */,
@@ -447,6 +462,7 @@
 				CB6DB249251F501E00097010 /* UIColor+getColorTheme.swift in Sources */,
 				CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */,
 				CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */,
+				CB3B3C5125208E60007C6EDB /* CoreDataManager.swift in Sources */,
 				CB72814A251E446300370A42 /* String+asData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,10 +15,10 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var textField: CustomTextField!
     @IBOutlet private weak var tableViewHeaderLabel: UILabel!
     @IBOutlet private weak var searchButton: UIButton!
-    @IBOutlet private weak var clearAllView: UIStackView!
+    @IBOutlet private weak var clearAllView: UIStackView! // renaem
 
     private var networkingService = NetworkingService()
-    private var activityIndicator: UIAlertController!
+    private var activityIndicator: UIAlertController! // rename
 
     var ingredients: [String] = []
 
@@ -48,10 +48,9 @@ final class ViewController: UIViewController {
     }
 
     @IBAction private func searchButtonTapped() {
-        let ingredients = self.ingredients.transformToString()
+        let ingredients = self.ingredients.transformToString() // dans request ?
         setActivityAlert(withTitle: "Please wait !",
-                         message: "We're getting your recipes !")
-        { activityIndicator in
+                         message: "We're getting your recipes !") { activityIndicator in
             self.networkingService.request(ingredients: ingredients) { [unowned self] result in self.manageResult(with: result)
             }
             self.activityIndicator = activityIndicator
@@ -63,7 +62,7 @@ final class ViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
         nextViewController.recipesModel = data.hits.map { RecipeModel(hit: $0, query: data.q) }
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        navigationController?.pushViewController(nextViewController, animated: true)
         activityIndicator.dismiss(animated: false)
     }
 
