@@ -13,10 +13,17 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-//    lazy var coreDataStack = CoreDataStack(containerName: "travelApp")
+    lazy var coreDataStack = CoreDataStack(containerName: "RecipeApp")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+//        guard let tabBarController = window?.rootViewController as? UITabBarController,
+//              let secondNavController = tabBarController.viewControllers?.last as? UINavigationController,
+//              let recipesTableVC = secondNavController.topViewController as? RecipesTableViewController else {
+//            fatalError("Can't reach the Storyboard / settingsVC")
+//        }
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
+//        recipesTableVC.coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
+
         return true
     }
 

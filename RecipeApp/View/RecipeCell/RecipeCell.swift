@@ -36,7 +36,7 @@ class RecipeCell: UITableViewCell {
         }
     }
 
-    var colorTheme: UIColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1) {
+    var colorTheme: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1) {
         didSet {
             [yield, recipeName, searchedIngredients].forEach { label in
                 label?.textColor = colorTheme

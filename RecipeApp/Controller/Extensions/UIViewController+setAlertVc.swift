@@ -29,7 +29,5 @@ extension UIViewController {
         alertController.view.layoutIfNeeded()
         present(alertController, animated: true) { presentedActivityController(alertController) }
     }
-    
-
 }
 
