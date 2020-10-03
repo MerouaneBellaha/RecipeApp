@@ -12,11 +12,11 @@ import XCTest
 class RecipeModelTestCase: XCTestCase {
 
     var hit: Hit!
-    var recipeModel: RecipeModel!
+    var recipeModel: RecipeViewModel!
 
     override func setUpWithError() throws {
         hit = setUpDefaultHit(totalTime: 120)
-        recipeModel = RecipeModel(hit: hit)
+        recipeModel = RecipeViewModel(hit: hit)
     }
 
     func testOverviewIngredientsStringFormatting() {
@@ -59,7 +59,7 @@ class RecipeModelTestCase: XCTestCase {
     }
 
     func testTimeStringFormattingWhenTimeIs0() {
-        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0))
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0))
 
         let expectedResult: String? = nil
 
@@ -75,7 +75,7 @@ class RecipeModelTestCase: XCTestCase {
     }
 
     func testDisplayOptionsTupleFormattingWhenTimeIstNil() {
-        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0))
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0))
 
         let expectedResult = ("square.split.2x2.fill", recipeModel.yield, true)
 

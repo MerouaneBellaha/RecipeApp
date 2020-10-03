@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    lazy var coreDataStack = CoreDataStack(containerName: "RecipeApp")
+    lazy var coreDataStack = CoreDataStack(containerName: "RecipeModel")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        guard let tabBarController = window?.rootViewController as? UITabBarController,

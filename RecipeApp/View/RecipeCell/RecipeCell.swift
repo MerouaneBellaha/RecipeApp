@@ -18,7 +18,7 @@ class RecipeCell: UITableViewCell {
     @IBOutlet weak var rightDetailImage: UIImageView!
     @IBOutlet weak var rightDetailText: UILabel!
 
-    var recipe: RecipeModel? {
+    var recipe: RecipeViewModel? {
         didSet {
             guard let image = recipe?.image else {
                 return picture.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)

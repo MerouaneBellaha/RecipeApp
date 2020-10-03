@@ -14,30 +14,38 @@ final class RecipeDetailViewController: UIViewController {
     @IBOutlet private weak var recipeImage: UIImageView!
     @IBOutlet weak var cookingTimeLabel: UILabel!
     @IBOutlet weak var yieldsLabel: UILabel!
+    @IBOutlet weak var favoriteButton: FavoriteButton!
 
     var coreDataManager: CoreDataManager?
-    var recipeModel: RecipeModel!
+    var recipeViewModel: RecipeViewModel!
     var colorTheme: UIColor = #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1)
-
+    var isFromFavorites: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = recipeModel.name
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
+
+        coreDataManager?.containsFavorite(named: recipeViewModel.name) == true ?
+            (favoriteButton.isFavorite = true) :
+            (favoriteButton.isFavorite = false)
+
+
+
+
+        title = recipeViewModel.name
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: colorTheme]
 
-        guard let image = recipeModel.image else {
+        guard let image = recipeViewModel.image else {
             return recipeImage.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         }
         recipeImage.image = UIImage(data: image)
 
         background.backgroundColor = colorTheme
 
-        cookingTimeLabel.text = recipeModel.time == nil ? "" : "cooking time : \(recipeModel.time ?? "N/A")"
-        yieldsLabel.text = recipeModel.yield
-
-
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
+        cookingTimeLabel.text = recipeViewModel.time == nil ? "" : "cooking time : \(recipeViewModel.time ?? "N/A")"
+        yieldsLabel.text = recipeViewModel.yield
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,19 +53,51 @@ final class RecipeDetailViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1)]
     }
 
-    @IBAction func favoriteButtonTapped(_ sender: UIBarButtonItem) {
-//        sender.image = UIImage(named: "")
+    @IBAction func favoriteButtonTapped(_ sender: FavoriteButton) {
+        sender.isFavorite ?
+            coreDataManager?.deleteFavorite(named: recipeViewModel.name) :
+            coreDataManager?.createFavorite(from: recipeViewModel)
+        sender.isFavorite.toggle()
+
+
+        print(coreDataManager?.loadFavorites().count)
+//
+        guard sender.isFavorite == false,
+             isFromFavorites == true else {
+            print("là")
+            return
+        }
+        print("ici")
+        navigationController?.popViewController(animated: true)
+//        if (parent as? FavoriteRecipesTableViewController) != nil {
+//            navigationController?.popViewController(animated: true)
+//        }
+
+//        if sender.isFavorite == false { navigationController?.popViewController(animated: true) }
+
+
+
+
+
+
+//        coreDataManager?.createItem(callBack: { [self] recipe in
+//            recipe.ingredientsOverview  = recipeViewModel.ingredientsOverview
+//            recipe.name = recipeViewModel.name
+//            recipe.pictureData = recipeViewModel.image
+//            recipe.time = recipeViewModel.time
+//            recipe.yield = recipeViewModel.yield
+//        })
     }
 }
 
 extension RecipeDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipeModel.ingredients.count
+        recipeViewModel.ingredients.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientDetailCell", for: indexPath)
-        cell.textLabel?.text = recipeModel.ingredients[indexPath.row]
+        cell.textLabel?.text = recipeViewModel.ingredients[indexPath.row]
         return cell
     }
 }

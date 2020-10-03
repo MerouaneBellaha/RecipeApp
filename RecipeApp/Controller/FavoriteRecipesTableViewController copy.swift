@@ -1,5 +1,5 @@
 //
-//  RecipesTableViewController.swift
+//  FavoriteRecipesTableViewController.swift
 //  RecipeApp
 //
 //  Created by Merouane Bellaha on 20/09/2020.
@@ -8,50 +8,31 @@
 
 import UIKit
 
-class RecipesTableViewController: UITableViewController {
+class FavoriteRecipesTableViewController: UITableViewController {
 
     var recipesViewModels: [RecipeViewModel] = [] { didSet { tableView.reloadData() }}
 
-//    var coreDataManager: CoreDataManager?
+    var coreDataManager: CoreDataManager?
+
+
+    // refacto
+    func toRecipeViewModel(transform recipe: RecipeModel) -> RecipeViewModel {
+        return RecipeViewModel(recipeModel: recipe)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         setUpRecipeCell()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
+    }
 
-//        let hit = Hit(recipe: Recipe(label: "Carrot Cake",
-//                                     image: "https://www.edamam.com/web-img/6b6/6b6d059217d67cb9b454edd6cded1144.JPG",
-//                                     yield: 4,
-//                                     ingredientLines: [
-//                                        "Buy the carrot",
-//                                        "Cook the carrot",
-//                                     ],
-//                                     totalTime: 120)
-//        )
-
-
-
-//        func toRecipeViewModel(transform recipe: RecipeModel) -> RecipeViewModel {
-//            return RecipeViewModel(recipeModel: recipe)
-//        }
-
-//        if recipesViewModels.isEmpty {
-//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//            coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
-//
-//            recipesViewModels = coreDataManager?.loadFavorites().map(toRecipeViewModel) ?? []
-//        }
-
-
-
-
-//
-//        guard recipesViewModels.isEmpty else { return }
-//
-//        title = "Your recipes"
-//        recipesViewModels.append(RecipeViewModel(hit: hit))
-//        recipesViewModels.append(RecipeViewModel(hit: hit))
-//        recipesViewModels.append(RecipeViewModel(hit: hit))
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recipesViewModels = coreDataManager?.loadFavorites().map(toRecipeViewModel) ?? []
     }
 
     private func setUpRecipeCell() {
@@ -81,6 +62,7 @@ class RecipesTableViewController: UITableViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
         nextViewController.colorTheme = (tableView.cellForRow(at: indexPath) as! RecipeCell).colorTheme
         nextViewController.recipeViewModel = recipesViewModels[indexPath.row]
+        nextViewController.isFromFavorites = true
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

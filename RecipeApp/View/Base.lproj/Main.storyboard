@@ -244,7 +244,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cW-5Q-t4s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1830" y="139"/>
+            <point key="canvasLocation" x="1842" y="-196"/>
+        </scene>
+        <!--Favorite Recipes-->
+        <scene sceneID="kiT-NL-1Uc">
+            <objects>
+                <tableViewController id="4CM-3j-3vR" customClass="FavoriteRecipesTableViewController" customModule="RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wxS-lC-nGn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="4CM-3j-3vR" id="DQb-h0-gCX"/>
+                            <outlet property="delegate" destination="4CM-3j-3vR" id="m2r-hQ-QoQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorite Recipes" largeTitleDisplayMode="always" id="IEy-x6-wei"/>
+                    <connections>
+                        <segue destination="1aa-K5-ktP" kind="show" identifier="toRecipeDetailViewController" id="qm0-gJ-CCn"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IP3-Ss-xSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="511"/>
         </scene>
         <!--RecipeName-->
         <scene sceneID="4Os-8D-in5">
@@ -360,7 +382,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="RecipeName" id="MQk-OH-ElC">
-                        <barButtonItem key="rightBarButtonItem" title="add" image="star" catalog="system" id="PMF-k1-eec">
+                        <barButtonItem key="rightBarButtonItem" title="add" image="star" catalog="system" id="PMF-k1-eec" customClass="FavoriteButton" customModule="RecipeApp" customModuleProvider="target">
                             <color key="tintColor" red="0.99607843139999996" green="0.72549019609999998" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="favoriteButtonTapped:" destination="1aa-K5-ktP" id="3Kg-O0-3uz"/>
@@ -370,6 +392,7 @@
                     <connections>
                         <outlet property="background" destination="gtm-Ye-bcJ" id="kyO-Ze-RQb"/>
                         <outlet property="cookingTimeLabel" destination="NJW-La-mlZ" id="zau-LZ-oin"/>
+                        <outlet property="favoriteButton" destination="PMF-k1-eec" id="5Oe-ez-bSo"/>
                         <outlet property="recipeImage" destination="YMA-Ud-3K1" id="gtL-go-xrK"/>
                         <outlet property="yieldsLabel" destination="8oj-PK-iSN" id="Xgp-1k-h1Q"/>
                     </connections>
@@ -412,7 +435,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="aWn-Lv-TDz" kind="relationship" relationship="rootViewController" id="aMM-MA-IcA"/>
+                        <segue destination="4CM-3j-3vR" kind="relationship" relationship="rootViewController" id="3Jd-zk-REz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4O-eS-xje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -446,7 +469,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="E2n-e2-66G"/>
+        <segue reference="jQa-ga-bpV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

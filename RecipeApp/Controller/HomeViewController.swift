@@ -60,7 +60,7 @@ final class HomeViewController: UIViewController {
     private func navigateToRecipes(with data: EdamamData) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
-        nextViewController.recipesModel = data.hits.map { RecipeModel(hit: $0) }
+        nextViewController.recipesViewModels = data.hits.map { RecipeViewModel(hit: $0) }
         navigationController?.pushViewController(nextViewController, animated: true)
         loader.dismiss(animated: false)
     }
