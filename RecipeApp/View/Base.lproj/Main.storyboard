@@ -413,6 +413,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="fKk-hc-sLG" kind="relationship" relationship="viewControllers" id="Saz-tW-jdU"/>
@@ -423,11 +424,11 @@
             </objects>
             <point key="canvasLocation" x="-871" y="139"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="NEa-mf-YSl">
             <objects>
                 <navigationController id="Dtp-uP-1MO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cdt-zh-vsJ"/>
+                    <tabBarItem key="tabBarItem" title="" image="star.green" id="cdt-zh-vsJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7pn-Z4-IPl">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -446,11 +447,11 @@
             </objects>
             <point key="canvasLocation" x="106" y="511"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="qe3-dx-fei">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fKk-hc-sLG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="FwM-i5-KZN"/>
+                    <tabBarItem key="tabBarItem" title="" image="search.green" id="FwM-i5-KZN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="s1p-RG-J0D">
                         <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
@@ -479,7 +480,9 @@
     <resources>
         <image name="plus" width="18" height="19"/>
         <image name="search" width="28" height="29"/>
+        <image name="search.green" width="25" height="26"/>
         <image name="star" width="24" height="23"/>
+        <image name="star.green" width="24" height="23"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
