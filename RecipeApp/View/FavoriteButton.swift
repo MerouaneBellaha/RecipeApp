@@ -14,8 +14,8 @@ final class FavoriteButton: UIBarButtonItem {
     var isFavorite: Bool = false {
         didSet {
             self.image = isFavorite ?
-                UIImage(named: "square.split.2x2.fill") :
-                UIImage(named: "stopwatch.fill")
+                UIImage(named: Constant.ImageName.star) :
+                UIImage(named: Constant.ImageName.starFill)
         }
     }
 }

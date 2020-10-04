@@ -9,16 +9,16 @@
 import Foundation
 
 enum RequestError: Error {
-    case noData, incorrectResponse, undecodableData/*, error*/
+    case noData, incorrectResponse, undecodableData
 
     var description: String {
         switch self {
         case .noData:
-            return "Can't reach the server, please retry."
+            return Constant.ErrorDescription.noData
         case .incorrectResponse:
-            return "Incorrect response"
+            return Constant.ErrorDescription.incorrectResponse
         case .undecodableData:
-            return "Undecodable data"
+            return Constant.ErrorDescription.undecodableData
         }
     }
 }

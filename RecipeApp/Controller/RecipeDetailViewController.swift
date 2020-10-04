@@ -76,7 +76,7 @@ final class RecipeDetailViewController: UIViewController {
         title = recipeViewModel.name
         background.backgroundColor = colorTheme
         cookingTimeLabel.text = recipeViewModel.cookingTime == nil ?
-            "" : "cooking time : \(recipeViewModel.cookingTime ?? "N/A")"
+            Constant.Text.emptyString : "cooking time : \(recipeViewModel.cookingTime ?? Constant.Text.NA)"
         yieldsLabel.text = recipeViewModel.yield
     }
 
@@ -94,7 +94,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientDetailCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.ingredientDetailCell, for: indexPath)
         cell.textLabel?.text = recipeViewModel.ingredients[indexPath.row]
         return cell
     }

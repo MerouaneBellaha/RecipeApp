@@ -31,8 +31,8 @@ final class FavoriteRecipesTableViewController: UITableViewController {
     // MARK: - Methods
 
     private func setUpRecipeCell() {
-        let cellNib = UINib(nibName: "RecipeCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: "recipeCell")
+        let cellNib = UINib(nibName: Constant.Identifier.recipeCellNib, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: Constant.Identifier.recipeCell)
     }
 
     private func setCoreDataManager() {
@@ -47,7 +47,7 @@ final class FavoriteRecipesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.recipeCell, for: indexPath) as! RecipeCell
         cell.colorTheme = .getColorTheme(from: indexPath.row)
         cell.recipe = recipesViewModels[indexPath.row]
         cell.selectionStyle = .none
@@ -57,8 +57,8 @@ final class FavoriteRecipesTableViewController: UITableViewController {
     // MARK: - TableViewDelegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
+        let storyBoard: UIStoryboard = UIStoryboard(name: Constant.Identifier.storyboardName, bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: Constant.Identifier.recipeDetailsVC) as! RecipeDetailViewController
         nextViewController.colorTheme = (tableView.cellForRow(at: indexPath) as! RecipeCell).colorTheme
         nextViewController.recipeViewModel = recipesViewModels[indexPath.row]
         nextViewController.isFromFavorites = true

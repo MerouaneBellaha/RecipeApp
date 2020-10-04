@@ -34,13 +34,13 @@ final class HomeViewController: UIViewController {
     }
 
     @IBAction private func addButtonTapped() {
-        guard textField.text != "",
+        guard textField.text != Constant.Text.emptyString,
               let ingredients = textField.text else {
-            setAlertVc(with: "Aucun aliment à ajouter !")
+            setAlertVc(with: Constant.Text.noFoodToAdd)
             return
         }
         guard self.ingredients.count < 5 else {
-            setAlertVc(with: "Vous ne pouvez pas ajouter plus d'ingrédients !")
+            setAlertVc(with: Constant.Text.cantAddMoreFood)
             return
         }
         let ingredientsList = ingredients.transformToArray
@@ -50,8 +50,8 @@ final class HomeViewController: UIViewController {
     }
 
     @IBAction private func searchButtonTapped() {
-        setActivityAlert(withTitle: "Please wait !",
-                         message: "We're getting your recipes !") { loader in
+        setActivityAlert(withTitle: Constant.Text.wait,
+                         message: Constant.Text.gettingRecipes) { loader in
             self.networkingService.request(ingredientsList: self.ingredients) { [unowned self] result in
                 self.manageResult(with: result)
             }
@@ -63,8 +63,8 @@ final class HomeViewController: UIViewController {
     // MARK: - Methods
 
     private func navigateToRecipes(with data: EdamamData) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "recipesViewController") as! RecipesTableViewController
+        let storyBoard: UIStoryboard = UIStoryboard(name: Constant.Identifier.storyboardName, bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: Constant.Identifier.recipesVC) as! RecipesTableViewController
         nextViewController.recipesViewModels = data.hits.map { RecipeViewModel(hit: $0) }
         navigationController?.pushViewController(nextViewController, animated: true)
         loader.dismiss(animated: false)
@@ -76,7 +76,7 @@ final class HomeViewController: UIViewController {
             case .success(let data):
                 guard !data.hits.isEmpty else {
                     self.loader.dismiss(animated: true)
-                    return self.setAlertVc(with: "Au moins l'un de vos ingrédients n'existe pas, vérifiez l'orthrographe !")
+                    return self.setAlertVc(with: Constant.Text.foodDoesntExist)
                 }
                 self.navigateToRecipes(with: data)
             case .failure(let error):
@@ -98,10 +98,10 @@ extension HomeViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { _, indexPath in
+        let deleteButton = UITableViewRowAction(style: .default, title: Constant.Text.delete) { _, indexPath in
             self.tableView.dataSource?.tableView?(self.tableView, commit: .delete, forRowAt: indexPath)
         }
-        deleteButton.backgroundColor = UIColor(named: "Accent")
+        deleteButton.backgroundColor = UIColor(named: Constant.ColorName.accent)
         return [deleteButton]
     }
 }
@@ -112,13 +112,14 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         clearButton.isHidden = ingredients.count == 0 ? true : false
         searchButton.isHidden = ingredients.count == 0 ? true : false
-        tableViewFooterLabel.text = ingredients.count == 0 ? .none : "Swipe left to remove an ingredient"
-        tableViewHeaderLabel.text = ingredients.count == 0 ? "Add some ingredients to start !" : "Your ingredients"
+        tableViewFooterLabel.text = ingredients.count == 0 ? .none : Constant.Text.swipeToRemove
+        tableViewHeaderLabel.text = ingredients.count == 0 ?
+            Constant.Text.addFood : Constant.Text.yourFood
         return ingredients.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.ingredientCell, for: indexPath)
         cell.textLabel?.text = ingredients[indexPath.row]
         return cell
     }
