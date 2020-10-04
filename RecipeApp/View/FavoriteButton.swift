@@ -14,8 +14,8 @@ final class FavoriteButton: UIBarButtonItem {
     var isFavorite: Bool = false {
         didSet {
             self.image = isFavorite ?
-                UIImage(named: Constant.ImageName.star) :
-                UIImage(named: Constant.ImageName.starFill)
+                UIImage(named: Constant.ImageName.starFill) :
+                UIImage(named: Constant.ImageName.star)
         }
     }
 }

@@ -23,15 +23,10 @@ final class NetworkingService {
     // MARK: - Methods
 
     func request(ingredientsList: [String], callback: @escaping (Result<EdamamData, RequestError>) -> Void) {
-
         guard let baseUrl = Constant.EdamamAPI.baseURL else { return }
-
         let ingredients = ingredientsList.transformToString
-
         var parameters = [("q", ingredients)]
-
         parameters.append(contentsOf: EdamamKey.keys + Constant.EdamamAPI.range)
-
         let url = encode(baseUrl: baseUrl, with: parameters)
 
         session.request(with: url) { responseData in

@@ -33,6 +33,13 @@ final class RecipeDetailViewController: UIViewController {
         setUIProperties()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBarColor(with: colorTheme)
+        setFavoriteButton()
+        popViewControllerIfNecessary()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         setNavigationBarColor(with: #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1))
@@ -45,15 +52,18 @@ final class RecipeDetailViewController: UIViewController {
             coreDataManager?.deleteFavorite(named: recipeViewModel.name) :
             coreDataManager?.createFavorite(from: recipeViewModel)
         sender.isFavorite.toggle()
+        popViewControllerIfNecessary()
+    }
 
-        guard sender.isFavorite == false,
+    // MARK: - Methods
+
+    private func popViewControllerIfNecessary() {
+        guard favoriteButton.isFavorite == false,
              isFromFavorites == true else {
             return
         }
         navigationController?.popViewController(animated: true)
     }
-
-    // MARK: - Methods
 
     private func setCoreDataManager() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -67,8 +77,6 @@ final class RecipeDetailViewController: UIViewController {
     }
 
     private func setUIProperties() {
-        setNavigationBarColor(with: colorTheme)
-        setFavoriteButton()
         guard let pictureData = recipeViewModel.pictureData else {
             return recipeImage.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         }
