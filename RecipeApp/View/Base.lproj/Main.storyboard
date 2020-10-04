@@ -52,7 +52,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="wHB-Yr-zOV"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="plus" catalog="system">
+                                                <state key="normal" image="plus">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -162,7 +162,7 @@
                                     <constraint firstAttribute="height" constant="60" id="LMn-Yo-cXd"/>
                                 </constraints>
                                 <color key="tintColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="magnifyingglass" catalog="system">
+                                <state key="normal" image="search">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -386,7 +386,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="RecipeName" id="MQk-OH-ElC">
-                        <barButtonItem key="rightBarButtonItem" title="add" image="star" catalog="system" id="PMF-k1-eec" customClass="FavoriteButton" customModule="RecipeApp" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" id="PMF-k1-eec" customClass="FavoriteButton" customModule="RecipeApp" customModuleProvider="target">
                             <color key="tintColor" red="0.99607843139999996" green="0.72549019609999998" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="favoriteButtonTapped:" destination="1aa-K5-ktP" id="3Kg-O0-3uz"/>
@@ -405,14 +405,15 @@
             </objects>
             <point key="canvasLocation" x="2657.971014492754" y="138.61607142857142"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar-->
         <scene sceneID="aFA-7z-op4">
             <objects>
-                <tabBarController id="o5E-9e-7UV" sceneMemberID="viewController">
+                <tabBarController id="o5E-9e-7UV" customClass="CustomTabBar" customModule="RecipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TtO-Ps-89R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="fKk-hc-sLG" kind="relationship" relationship="viewControllers" id="Saz-tW-jdU"/>
@@ -423,11 +424,11 @@
             </objects>
             <point key="canvasLocation" x="-871" y="139"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="NEa-mf-YSl">
             <objects>
                 <navigationController id="Dtp-uP-1MO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cdt-zh-vsJ"/>
+                    <tabBarItem key="tabBarItem" title="" image="star.green" id="cdt-zh-vsJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7pn-Z4-IPl">
                         <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -446,14 +447,14 @@
             </objects>
             <point key="canvasLocation" x="106" y="511"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="qe3-dx-fei">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fKk-hc-sLG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="FwM-i5-KZN"/>
+                    <tabBarItem key="tabBarItem" title="" image="search.green" id="FwM-i5-KZN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="s1p-RG-J0D">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -477,9 +478,10 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="plus" width="18" height="19"/>
+        <image name="search" width="28" height="29"/>
+        <image name="search.green" width="25" height="26"/>
+        <image name="star.green" width="24" height="23"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

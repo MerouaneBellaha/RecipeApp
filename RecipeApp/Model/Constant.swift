@@ -35,8 +35,8 @@ struct Constant {
         static let squares = "square.split.2x2.fill"
         static let stopwatch = "stopwatch.fill"
 
-        static let star = "square.split.2x2.fill"
-        static let starFill = "stopwatch.fill"
+        static let star = "star"
+        static let starFill = "star.fill"
     }
 
     struct ColorName {
