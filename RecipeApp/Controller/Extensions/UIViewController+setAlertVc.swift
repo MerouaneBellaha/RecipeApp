@@ -10,6 +10,7 @@ import UIKit
 
 extension UIViewController {
 
+    /// set an alert with a button "OK"
     func setAlertVc(with message: String) {
         let alertVC = UIAlertController(title: "Oups!", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

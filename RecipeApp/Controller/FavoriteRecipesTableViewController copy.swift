@@ -1,5 +1,5 @@
 //
-//  RecipesTableViewController.swift
+//  FavoriteRecipesTableViewController.swift
 //  RecipeApp
 //
 //  Created by Merouane Bellaha on 20/09/2020.
@@ -8,17 +8,24 @@
 
 import UIKit
 
-final class RecipesTableViewController: UITableViewController {
+final class FavoriteRecipesTableViewController: UITableViewController {
 
     // MARK: - Properties
 
-    var recipesViewModels: [RecipeViewModel] = [] { didSet { tableView.reloadData() }}
+    private var recipesViewModels: [RecipeViewModel] = [] { didSet { tableView.reloadData() }}
+    private var coreDataManager: CoreDataManager?
 
     // MARK: - View lifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRecipeCell()
+        setCoreDataManager()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recipesViewModels = coreDataManager?.loadFavorites().map { RecipeViewModel(recipeEntity: $0) } ?? []
     }
 
     // MARK: - Methods
@@ -26,6 +33,11 @@ final class RecipesTableViewController: UITableViewController {
     private func setUpRecipeCell() {
         let cellNib = UINib(nibName: "RecipeCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "recipeCell")
+    }
+
+    private func setCoreDataManager() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
     }
 
     // MARK: - TableViewDataSource
@@ -40,7 +52,6 @@ final class RecipesTableViewController: UITableViewController {
         cell.recipe = recipesViewModels[indexPath.row]
         cell.selectionStyle = .none
         return cell
-
     }
 
     // MARK: - TableViewDelegate
@@ -50,6 +61,7 @@ final class RecipesTableViewController: UITableViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
         nextViewController.colorTheme = (tableView.cellForRow(at: indexPath) as! RecipeCell).colorTheme
         nextViewController.recipeViewModel = recipesViewModels[indexPath.row]
+        nextViewController.isFromFavorites = true
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

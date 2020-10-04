@@ -12,17 +12,17 @@ import XCTest
 class RecipeModelTestCase: XCTestCase {
 
     var hit: Hit!
-    var recipeModel: RecipeModel!
+    var recipeModel: RecipeViewModel!
 
     override func setUpWithError() throws {
         hit = setUpDefaultHit(totalTime: 120)
-        recipeModel = RecipeModel(hit: hit, query: "carrot,pistache")
+        recipeModel = RecipeViewModel(hit: hit)
     }
 
-    func testSearchedIngredientsStringFormatting() {
-        let expectedResult = "carrot, pistache"
+    func testOverviewIngredientsStringFormatting() {
+        let expectedResult = "Buy the carrot, Cook the carrot"
 
-        XCTAssertEqual(recipeModel.searchedIngredients, expectedResult)
+        XCTAssertEqual(recipeModel.ingredientsOverview, expectedResult)
     }
 
     func testNameStringFormatting() {
@@ -33,8 +33,8 @@ class RecipeModelTestCase: XCTestCase {
 
     func testImageDataFormatting() {
 
-        XCTAssertTrue((recipeModel?.image) != nil)
-        XCTAssertEqual(recipeModel.image?.description, "43609 bytes")
+        XCTAssertTrue((recipeModel?.imageData) != nil)
+        XCTAssertEqual(recipeModel.imageData?.description, "43609 bytes")
     }
 
     func testYieldStringFormatting() {
@@ -55,19 +55,19 @@ class RecipeModelTestCase: XCTestCase {
     func testTimeStringFormattingWhenTimeIsNot0() {
         let expectedResult = "2h 0m"
 
-        XCTAssertEqual(recipeModel.time, expectedResult)
+        XCTAssertEqual(recipeModel.cookingTime, expectedResult)
     }
 
     func testTimeStringFormattingWhenTimeIs0() {
-        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0), query: "")
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0))
 
         let expectedResult: String? = nil
 
-        XCTAssertEqual(recipeModel.time, expectedResult)
+        XCTAssertEqual(recipeModel.cookingTime, expectedResult)
     }
 
     func testDisplayOptionsTupleFormattingWhenTimeIsNotNil() {
-        let expectedResult = ("stopwatch.fill", recipeModel.time, false)
+        let expectedResult = ("stopwatch.fill", recipeModel.cookingTime, false)
 
         XCTAssertEqual(recipeModel.displayOptions.0, expectedResult.0)
         XCTAssertEqual(recipeModel.displayOptions.1, expectedResult.1)
@@ -75,7 +75,7 @@ class RecipeModelTestCase: XCTestCase {
     }
 
     func testDisplayOptionsTupleFormattingWhenTimeIstNil() {
-        recipeModel = RecipeModel(hit: setUpDefaultHit(totalTime: 0), query: "")
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0))
 
         let expectedResult = ("square.split.2x2.fill", recipeModel.yield, true)
 

@@ -10,40 +10,47 @@ import Foundation
 
 final class NetworkingService {
 
+    // MARK: - Properties
+
     private let session: AlamoSession
+
+    // MARK: - Init
     
     init(session: AlamoSession = NetworkingSession()) {
         self.session = session
     }
 
-    func request(ingredients: String, callback: @escaping (Result<EdamamData, RequestError>) -> Void) {
+    // MARK: - Methods
+
+    func request(ingredientsList: [String], callback: @escaping (Result<EdamamData, RequestError>) -> Void) {
 
         guard let baseUrl = URL(string: "https://api.edamam.com/search?") else { return }
 
+        let ingredients = ingredientsList.transformToString
+
         var parameters = [("q", ingredients)]
+
         let keys = [("app_id", "297e5599"), ("app_key", "d1735c5df8f93d2d20c4849935735f5b")]
+
         let range = [("from", "0"), ("to", "10")]
 
         parameters.append(contentsOf: keys + range)
 
         let url = encode(baseUrl: baseUrl, with: parameters)
-        print(url)
+
         session.request(with: url) { responseData in
             guard let data = responseData.data else {
                 callback(.failure(.noData))
                 return
             }
-
             guard responseData.response?.statusCode == 200 else {
                 callback(.failure(.incorrectResponse))
                 return
             }
-
             guard let responseDecoded = try? JSONDecoder().decode(EdamamData.self, from: data) else {
                 callback(.failure(.undecodableData))
                 return
             }
-
             callback(.success(responseDecoded))
         }
     }

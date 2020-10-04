@@ -41,7 +41,7 @@ class NetworkingServiceTestCase: XCTestCase {
     private func performRequest(data: Foundation.Data?, response: HTTPURLResponse?, error: Error?) {
         let session = MockNetworkingSession(fakeResponse: FakeResponse(response: response, data: data))
         networkingService = NetworkingService(session: session)
-        networkingService.request(ingredients: "") { [unowned self] result in
+        networkingService.request(ingredientsList: []) { [unowned self] result in
             self.manageResult(with: result)
         }
     }

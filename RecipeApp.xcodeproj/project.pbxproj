@@ -24,7 +24,7 @@
 		CB7280C2251DD73300370A42 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280C1251DD73300370A42 /* FakeResponseData.swift */; };
 		CB7280C9251DD78400370A42 /* MockNetworkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280C8251DD78400370A42 /* MockNetworkingSession.swift */; };
 		CB72812C251DF91B00370A42 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = CB7280C7251DD74100370A42 /* Recipe.json */; };
-		CB728139251E41CE00370A42 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728138251E41CE00370A42 /* RecipeModel.swift */; };
+		CB728139251E41CE00370A42 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728138251E41CE00370A42 /* RecipeViewModel.swift */; };
 		CB72813E251E425800370A42 /* String+transformToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72813D251E425800370A42 /* String+transformToArray.swift */; };
 		CB728146251E428400370A42 /* Array+transformToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728145251E428400370A42 /* Array+transformToString.swift */; };
 		CB72814A251E446300370A42 /* String+asData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728149251E446300370A42 /* String+asData.swift */; };
@@ -32,13 +32,15 @@
 		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
 		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
-		CBC3250A2515E9100007C146 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* ViewController.swift */; };
+		CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* HomeViewController.swift */; };
 		CBC3250D2515E9100007C146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC3250B2515E9100007C146 /* Main.storyboard */; };
-		CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */; };
 		CBC325122515E9100007C146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC325112515E9100007C146 /* Assets.xcassets */; };
 		CBC325152515E9100007C146 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC325132515E9100007C146 /* LaunchScreen.storyboard */; };
 		CBC325202515EC050007C146 /* NetworkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3251F2515EC050007C146 /* NetworkingSession.swift */; };
 		CBC4D2C3251756F40073FD6A /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4D2C2251756F40073FD6A /* RecipesTableViewController.swift */; };
+		CBD706992528814B00568539 /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBD706972528814B00568539 /* RecipeModel.xcdatamodeld */; };
+		CBD706A125288B9800568539 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD706A025288B9800568539 /* FavoriteButton.swift */; };
+		CBD706A52528A80900568539 /* FavoriteRecipesTableViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD706A42528A80900568539 /* FavoriteRecipesTableViewController copy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +74,7 @@
 		CB7280C1251DD73300370A42 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		CB7280C7251DD74100370A42 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
 		CB7280C8251DD78400370A42 /* MockNetworkingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingSession.swift; sourceTree = "<group>"; };
-		CB728138251E41CE00370A42 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		CB728138251E41CE00370A42 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		CB72813D251E425800370A42 /* String+transformToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+transformToArray.swift"; sourceTree = "<group>"; };
 		CB728145251E428400370A42 /* Array+transformToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+transformToString.swift"; sourceTree = "<group>"; };
 		CB728149251E446300370A42 /* String+asData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+asData.swift"; sourceTree = "<group>"; };
@@ -81,14 +83,16 @@
 		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CBC325022515E9100007C146 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC325052515E9100007C146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBC325092515E9100007C146 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBC325092515E9100007C146 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CBC3250C2515E9100007C146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeApp.xcdatamodel; sourceTree = "<group>"; };
 		CBC325112515E9100007C146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBC325142515E9100007C146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBC325162515E9100007C146 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBC3251F2515EC050007C146 /* NetworkingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingSession.swift; sourceTree = "<group>"; };
 		CBC4D2C2251756F40073FD6A /* RecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
+		CBD706982528814B00568539 /* Recipe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recipe.xcdatamodel; sourceTree = "<group>"; };
+		CBD706A025288B9800568539 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		CBD706A42528A80900568539 /* FavoriteRecipesTableViewController copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteRecipesTableViewController copy.swift"; sourceTree = "<group>"; };
 		DAEE25D7474999C604DF3FC7 /* libPods-RecipeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E993170BC0A4061B3DBCE9AA /* Pods-RecipeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeApp.release.xcconfig"; path = "Target Support Files/Pods-RecipeApp/Pods-RecipeApp.release.xcconfig"; sourceTree = "<group>"; };
 		F7B9F54D7A54DBD88FE565D0 /* libPods-RecipeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,7 @@
 			children = (
 				CB3B3C4925208D5D007C6EDB /* CoreDataManager.swift */,
 				CB3B3C4825208D5A007C6EDB /* CoreDataStack.swift */,
+				CBD706972528814B00568539 /* RecipeModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -215,7 +220,6 @@
 				CBC325112515E9100007C146 /* Assets.xcassets */,
 				CBC325132515E9100007C146 /* LaunchScreen.storyboard */,
 				CBC325162515E9100007C146 /* Info.plist */,
-				CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */,
 			);
 			path = RecipeApp;
 			sourceTree = "<group>";
@@ -226,7 +230,7 @@
 				CB3B3C4725208D44007C6EDB /* CoreData */,
 				CB6DB22A251F30C100097010 /* Networking */,
 				CB72813C251E421100370A42 /* Extensions */,
-				CB728138251E41CE00370A42 /* RecipeModel.swift */,
+				CB728138251E41CE00370A42 /* RecipeViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +242,7 @@
 				CBA596702516C61A000AC461 /* CustomTextField.swift */,
 				CBC4D2C525175ED40073FD6A /* RecipeCell */,
 				CBC4D2C425175EA80073FD6A /* Extensions */,
+				CBD706A025288B9800568539 /* FavoriteButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,8 +250,9 @@
 		CBC3251E2515EBD70007C146 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CBC325092515E9100007C146 /* ViewController.swift */,
+				CBC325092515E9100007C146 /* HomeViewController.swift */,
 				CBC4D2C2251756F40073FD6A /* RecipesTableViewController.swift */,
+				CBD706A42528A80900568539 /* FavoriteRecipesTableViewController copy.swift */,
 				CB6DB24C251F511F00097010 /* RecipeDetailViewController.swift */,
 				CBC4D2C625175F010073FD6A /* Extensions */,
 			);
@@ -447,23 +453,25 @@
 				CB72813E251E425800370A42 /* String+transformToArray.swift in Sources */,
 				CB1C0AF72517514D00BE9AD3 /* UIView+shadow.swift in Sources */,
 				CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */,
-				CBC3250A2515E9100007C146 /* ViewController.swift in Sources */,
+				CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */,
+				CBD706A52528A80900568539 /* FavoriteRecipesTableViewController copy.swift in Sources */,
 				CB1C0AFA2517518200BE9AD3 /* RecipeCell.swift in Sources */,
 				CB6DB24D251F511F00097010 /* RecipeDetailViewController.swift in Sources */,
 				CBC4D2C3251756F40073FD6A /* RecipesTableViewController.swift in Sources */,
 				CBC325202515EC050007C146 /* NetworkingSession.swift in Sources */,
 				CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */,
 				CB728146251E428400370A42 /* Array+transformToString.swift in Sources */,
-				CB728139251E41CE00370A42 /* RecipeModel.swift in Sources */,
+				CB728139251E41CE00370A42 /* RecipeViewModel.swift in Sources */,
 				CB7280AC251DC79700370A42 /* Data.swift in Sources */,
 				CBC325062515E9100007C146 /* AppDelegate.swift in Sources */,
 				CB7280AF251DC7BF00370A42 /* RequestError.swift in Sources */,
 				CB7280A6251DC6AF00370A42 /* NetworkingService.swift in Sources */,
 				CB6DB249251F501E00097010 /* UIColor+getColorTheme.swift in Sources */,
-				CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */,
 				CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */,
+				CBD706992528814B00568539 /* RecipeModel.xcdatamodeld in Sources */,
 				CB3B3C5125208E60007C6EDB /* CoreDataManager.swift in Sources */,
 				CB72814A251E446300370A42 /* String+asData.swift in Sources */,
+				CBD706A125288B9800568539 /* FavoriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,13 +740,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */ = {
+		CBD706972528814B00568539 /* RecipeModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */,
+				CBD706982528814B00568539 /* Recipe.xcdatamodel */,
 			);
-			currentVersion = CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */;
-			path = RecipeApp.xcdatamodeld;
+			currentVersion = CBD706982528814B00568539 /* Recipe.xcdatamodel */;
+			path = RecipeModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

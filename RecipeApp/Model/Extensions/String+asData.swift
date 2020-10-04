@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+    
     /// get data from URL
     var asData: Data? {
         guard let url = URL(string: self) else { return nil }

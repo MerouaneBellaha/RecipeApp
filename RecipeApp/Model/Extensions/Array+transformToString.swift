@@ -9,7 +9,9 @@
 import Foundation
 
 extension Array where Element == String {
-    func transformToString() -> String {
+
+    /// Take a [String], remove occurences of 🥕, and join it separated by ","
+    var transformToString: String {
         return self.map { $0.replacingOccurrences(of: "🥕 ", with: "") }
             .joined(separator: ",")
     }
