@@ -20,7 +20,6 @@ struct Constant {
         static let ingredientDetailCell = "ingredientDetailCell"
     }
 
-
     struct EdamamAPI {
         static let baseURL = URL(string: "https://api.edamam.com/search?")
         static let range: [(String, String)] = [("from", "0"), ("to", "10")]
@@ -57,12 +56,4 @@ struct Constant {
         static let delete = "Delete"
         static let NA = "N/A"
     }
-
-
-}
-
-struct EdamamKey {
-    static let appID = ("app_id", "297e5599")
-    static let appKey = ("app_key", "d1735c5df8f93d2d20c4849935735f5b")
-    static var keys: [(String, String)] { [appID, appKey] }
 }
