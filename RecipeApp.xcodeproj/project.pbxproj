@@ -30,6 +30,7 @@
 		CB72814A251E446300370A42 /* String+asData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB728149251E446300370A42 /* String+asData.swift */; };
 		CB759EF62529FDB700D4EC0B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB759EF52529FDB700D4EC0B /* Constant.swift */; };
 		CB759EFA252A082500D4EC0B /* EdamamKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB759EF9252A082500D4EC0B /* EdamamKey.swift */; };
+		CB759F02252A426B00D4EC0B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB759F01252A426B00D4EC0B /* CustomTabBar.swift */; };
 		CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */; };
 		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
 		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
@@ -82,6 +83,7 @@
 		CB728149251E446300370A42 /* String+asData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+asData.swift"; sourceTree = "<group>"; };
 		CB759EF52529FDB700D4EC0B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		CB759EF9252A082500D4EC0B /* EdamamKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamKey.swift; sourceTree = "<group>"; };
+		CB759F01252A426B00D4EC0B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+setAlertVc.swift"; sourceTree = "<group>"; };
 		CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
 		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				CBC4D2C525175ED40073FD6A /* RecipeCell */,
 				CBC4D2C425175EA80073FD6A /* Extensions */,
 				CBD706A025288B9800568539 /* FavoriteButton.swift */,
+				CB759F01252A426B00D4EC0B /* CustomTabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				CB728146251E428400370A42 /* Array+transformToString.swift in Sources */,
 				CB728139251E41CE00370A42 /* RecipeViewModel.swift in Sources */,
 				CB7280AC251DC79700370A42 /* Data.swift in Sources */,
+				CB759F02252A426B00D4EC0B /* CustomTabBar.swift in Sources */,
 				CBC325062515E9100007C146 /* AppDelegate.swift in Sources */,
 				CB7280AF251DC7BF00370A42 /* RequestError.swift in Sources */,
 				CB7280A6251DC6AF00370A42 /* NetworkingService.swift in Sources */,
