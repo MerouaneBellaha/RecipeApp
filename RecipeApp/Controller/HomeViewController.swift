@@ -10,6 +10,8 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
+    // MARK: - @IBOutler Properties
+
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var tableViewFooterLabel: UILabel!
     @IBOutlet private weak var textField: CustomTextField!
@@ -17,14 +19,14 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var clearButton: UIStackView!
 
+    // MARK: - Properties
+
     private var networkingService = NetworkingService()
     private var loader: UIAlertController!
 
     var ingredients: [String] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    // MARK: - @IBAction methods
 
     @IBAction private func clearButtonTapped() {
         ingredients.removeAll()
@@ -50,12 +52,15 @@ final class HomeViewController: UIViewController {
     @IBAction private func searchButtonTapped() {
         setActivityAlert(withTitle: "Please wait !",
                          message: "We're getting your recipes !") { loader in
-            self.networkingService.request(ingredientsList: self.ingredients) { [unowned self] result in self.manageResult(with: result)
+            self.networkingService.request(ingredientsList: self.ingredients) { [unowned self] result in
+                self.manageResult(with: result)
             }
             self.loader = loader
         }
 
     }
+
+    // MARK: - Methods
 
     private func navigateToRecipes(with data: EdamamData) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -82,6 +87,8 @@ final class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -99,6 +106,8 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         clearButton.isHidden = ingredients.count == 0 ? true : false
@@ -115,10 +124,14 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
+//TODO: Remove this when projet is done
+
+// When constraints conflict, help to identify which constraints is faulty
+
 extension NSLayoutConstraint {
 
     override public var description: String {
         let id = identifier ?? ""
-        return "id: \(id), constant: \(constant)" //you may print whatever you want here
+        return "id: \(id), constant: \(constant)"
     }
 }

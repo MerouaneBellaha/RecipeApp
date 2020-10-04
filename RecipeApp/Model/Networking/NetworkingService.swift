@@ -10,11 +10,17 @@ import Foundation
 
 final class NetworkingService {
 
+    // MARK: - Properties
+
     private let session: AlamoSession
+
+    // MARK: - Init
     
     init(session: AlamoSession = NetworkingSession()) {
         self.session = session
     }
+
+    // MARK: - Methods
 
     func request(ingredientsList: [String], callback: @escaping (Result<EdamamData, RequestError>) -> Void) {
 
@@ -31,23 +37,20 @@ final class NetworkingService {
         parameters.append(contentsOf: keys + range)
 
         let url = encode(baseUrl: baseUrl, with: parameters)
-        print(url)
+
         session.request(with: url) { responseData in
             guard let data = responseData.data else {
                 callback(.failure(.noData))
                 return
             }
-
             guard responseData.response?.statusCode == 200 else {
                 callback(.failure(.incorrectResponse))
                 return
             }
-
             guard let responseDecoded = try? JSONDecoder().decode(EdamamData.self, from: data) else {
                 callback(.failure(.undecodableData))
                 return
             }
-
             callback(.success(responseDecoded))
         }
     }

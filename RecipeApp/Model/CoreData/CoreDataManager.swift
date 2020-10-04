@@ -8,21 +8,6 @@
 
 import CoreData
 
-//enum Predicate {
-//    case currency(String)
-//    case text(String)
-//
-//    var format: NSPredicate {
-//        switch self {
-//        case .currency(let currency):
-//            return NSPredicate(format: K.currencyFormat, currency)
-//        case .text(let text):
-//            return NSPredicate(format: K.taskFormat, text)
-//        }
-//    }
-//}
-
-
 final class CoreDataManager {
 
     // MARK: - Properties
@@ -39,31 +24,8 @@ final class CoreDataManager {
 
     // MARK: - Methods
 
-    func testprint() {
-        print("j'existe")
-    }
-    //    func loadItems<T: NSManagedObject>(entity: T.Type, predicate: Predicate? = nil, sortBy key: String? = nil) -> [T] {
-    //        let request = T.fetchRequest()
-    //
-    //        if let predicate = predicate {
-    //            request.predicate = predicate.format
-    //        }
-    //        if let key = key {
-    //            request.sortDescriptors = [NSSortDescriptor(key: key, ascending: true)]
-    //        }
-    //
-    //        guard let items = try? (context.fetch(request).compactMap { $0 as? T }) else { return [] }
-    //        return items
-    //    }
-    //
-    //    func createItem(callBack: @escaping ((RecipeModel) -> ())) {
-    //        let newRecipe = RecipeModel(context: context)
-    //        callBack(newRecipe)
-    //        coreDataStack.saveContext()
-    //    }
-
-    func loadFavorites(with predicate: String? = nil) -> [RecipeModel] {
-        let request: NSFetchRequest<RecipeModel> = RecipeModel.fetchRequest()
+    func loadFavorites(with predicate: String? = nil) -> [RecipeEntity] {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
 
         if let predicate = predicate {
             request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", predicate)
@@ -71,14 +33,13 @@ final class CoreDataManager {
 
         guard let favoriteRecipes = try? context.fetch(request) else { return [] }
         return favoriteRecipes
-
     }
 
     func createFavorite(from recipeViewModel: RecipeViewModel) {
-        let newRecipe = RecipeModel(context: context)
+        let newRecipe = RecipeEntity(context: context)
         newRecipe.name = recipeViewModel.name
-        newRecipe.pictureData = recipeViewModel.image
-        newRecipe.time = recipeViewModel.time
+        newRecipe.pictureData = recipeViewModel.pictureData
+        newRecipe.cookingTime = recipeViewModel.cookingTime
         newRecipe.yield = recipeViewModel.yield
         newRecipe.ingredientsOverview = recipeViewModel.ingredientsOverview
         coreDataStack.saveContext()
@@ -100,14 +61,3 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
 }
-
-
-//
-//    func deleteItems<T: NSManagedObject>(entity: T.Type) {
-
-//
-//    func deleteItem<T: NSManagedObject>(item: T) {
-//        context.delete(item)
-//        coreDataStack.saveContext()
-//    }
-

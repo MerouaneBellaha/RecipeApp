@@ -8,51 +8,20 @@
 
 import UIKit
 
-class RecipesTableViewController: UITableViewController {
+final class RecipesTableViewController: UITableViewController {
+
+    // MARK: - Properties
 
     var recipesViewModels: [RecipeViewModel] = [] { didSet { tableView.reloadData() }}
 
-//    var coreDataManager: CoreDataManager?
+    // MARK: - View lifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRecipeCell()
-
-//        let hit = Hit(recipe: Recipe(label: "Carrot Cake",
-//                                     image: "https://www.edamam.com/web-img/6b6/6b6d059217d67cb9b454edd6cded1144.JPG",
-//                                     yield: 4,
-//                                     ingredientLines: [
-//                                        "Buy the carrot",
-//                                        "Cook the carrot",
-//                                     ],
-//                                     totalTime: 120)
-//        )
-
-
-
-//        func toRecipeViewModel(transform recipe: RecipeModel) -> RecipeViewModel {
-//            return RecipeViewModel(recipeModel: recipe)
-//        }
-
-//        if recipesViewModels.isEmpty {
-//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//            coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
-//
-//            recipesViewModels = coreDataManager?.loadFavorites().map(toRecipeViewModel) ?? []
-//        }
-
-
-
-
-//
-//        guard recipesViewModels.isEmpty else { return }
-//
-//        title = "Your recipes"
-//        recipesViewModels.append(RecipeViewModel(hit: hit))
-//        recipesViewModels.append(RecipeViewModel(hit: hit))
-//        recipesViewModels.append(RecipeViewModel(hit: hit))
-        
     }
+
+    // MARK: - Methods
 
     private func setUpRecipeCell() {
         let cellNib = UINib(nibName: "RecipeCell", bundle: nil)

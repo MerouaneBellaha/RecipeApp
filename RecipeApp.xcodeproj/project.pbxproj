@@ -34,7 +34,6 @@
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
 		CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* HomeViewController.swift */; };
 		CBC3250D2515E9100007C146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC3250B2515E9100007C146 /* Main.storyboard */; };
-		CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */; };
 		CBC325122515E9100007C146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC325112515E9100007C146 /* Assets.xcassets */; };
 		CBC325152515E9100007C146 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC325132515E9100007C146 /* LaunchScreen.storyboard */; };
 		CBC325202515EC050007C146 /* NetworkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC3251F2515EC050007C146 /* NetworkingSession.swift */; };
@@ -86,7 +85,6 @@
 		CBC325052515E9100007C146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBC325092515E9100007C146 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CBC3250C2515E9100007C146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeApp.xcdatamodel; sourceTree = "<group>"; };
 		CBC325112515E9100007C146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBC325142515E9100007C146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBC325162515E9100007C146 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 				CBC325112515E9100007C146 /* Assets.xcassets */,
 				CBC325132515E9100007C146 /* LaunchScreen.storyboard */,
 				CBC325162515E9100007C146 /* Info.plist */,
-				CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */,
 			);
 			path = RecipeApp;
 			sourceTree = "<group>";
@@ -470,7 +467,6 @@
 				CB7280AF251DC7BF00370A42 /* RequestError.swift in Sources */,
 				CB7280A6251DC6AF00370A42 /* NetworkingService.swift in Sources */,
 				CB6DB249251F501E00097010 /* UIColor+getColorTheme.swift in Sources */,
-				CBC325102515E9100007C146 /* RecipeApp.xcdatamodeld in Sources */,
 				CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */,
 				CBD706992528814B00568539 /* RecipeModel.xcdatamodeld in Sources */,
 				CB3B3C5125208E60007C6EDB /* CoreDataManager.swift in Sources */,
@@ -744,16 +740,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CBC3250E2515E9100007C146 /* RecipeApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */,
-			);
-			currentVersion = CBC3250F2515E9100007C146 /* RecipeApp.xcdatamodel */;
-			path = RecipeApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		CBD706972528814B00568539 /* RecipeModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

@@ -9,6 +9,8 @@
 import UIKit
 
 final class FavoriteButton: UIBarButtonItem {
+    
+    /// didSet: Change icon accordingly with isFavorite value
     var isFavorite: Bool = false {
         didSet {
             self.image = isFavorite ?
@@ -16,10 +18,4 @@ final class FavoriteButton: UIBarButtonItem {
                 UIImage(named: "stopwatch.fill")
         }
     }
-
-//    override var image: UIImage? {
-//            isFavorite ?
-//                (image = UIImage(named: "square.split.2x2.fill")) :
-//                (image = UIImage(named: "stopwatch.fill"))
-//    }
 }

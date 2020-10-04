@@ -8,36 +8,36 @@
 
 import UIKit
 
-class FavoriteRecipesTableViewController: UITableViewController {
+final class FavoriteRecipesTableViewController: UITableViewController {
 
-    var recipesViewModels: [RecipeViewModel] = [] { didSet { tableView.reloadData() }}
+    // MARK: - Properties
 
-    var coreDataManager: CoreDataManager?
+    private var recipesViewModels: [RecipeViewModel] = [] { didSet { tableView.reloadData() }}
+    private var coreDataManager: CoreDataManager?
 
-
-    // refacto
-    func toRecipeViewModel(transform recipe: RecipeModel) -> RecipeViewModel {
-        return RecipeViewModel(recipeModel: recipe)
-    }
-
+    // MARK: - View lifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         setUpRecipeCell()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
+        setCoreDataManager()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        recipesViewModels = coreDataManager?.loadFavorites().map(toRecipeViewModel) ?? []
+        recipesViewModels = coreDataManager?.loadFavorites().map { RecipeViewModel(recipeEntity: $0) } ?? []
     }
+
+    // MARK: - Methods
 
     private func setUpRecipeCell() {
         let cellNib = UINib(nibName: "RecipeCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "recipeCell")
+    }
+
+    private func setCoreDataManager() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        coreDataManager = CoreDataManager(with: appDelegate.coreDataStack)
     }
 
     // MARK: - TableViewDataSource
@@ -52,7 +52,6 @@ class FavoriteRecipesTableViewController: UITableViewController {
         cell.recipe = recipesViewModels[indexPath.row]
         cell.selectionStyle = .none
         return cell
-
     }
 
     // MARK: - TableViewDelegate

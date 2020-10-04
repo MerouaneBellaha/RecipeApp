@@ -33,8 +33,8 @@ class RecipeModelTestCase: XCTestCase {
 
     func testImageDataFormatting() {
 
-        XCTAssertTrue((recipeModel?.image) != nil)
-        XCTAssertEqual(recipeModel.image?.description, "43609 bytes")
+        XCTAssertTrue((recipeModel?.imageData) != nil)
+        XCTAssertEqual(recipeModel.imageData?.description, "43609 bytes")
     }
 
     func testYieldStringFormatting() {
@@ -55,7 +55,7 @@ class RecipeModelTestCase: XCTestCase {
     func testTimeStringFormattingWhenTimeIsNot0() {
         let expectedResult = "2h 0m"
 
-        XCTAssertEqual(recipeModel.time, expectedResult)
+        XCTAssertEqual(recipeModel.cookingTime, expectedResult)
     }
 
     func testTimeStringFormattingWhenTimeIs0() {
@@ -63,11 +63,11 @@ class RecipeModelTestCase: XCTestCase {
 
         let expectedResult: String? = nil
 
-        XCTAssertEqual(recipeModel.time, expectedResult)
+        XCTAssertEqual(recipeModel.cookingTime, expectedResult)
     }
 
     func testDisplayOptionsTupleFormattingWhenTimeIsNotNil() {
-        let expectedResult = ("stopwatch.fill", recipeModel.time, false)
+        let expectedResult = ("stopwatch.fill", recipeModel.cookingTime, false)
 
         XCTAssertEqual(recipeModel.displayOptions.0, expectedResult.0)
         XCTAssertEqual(recipeModel.displayOptions.1, expectedResult.1)
