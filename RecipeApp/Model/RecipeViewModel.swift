@@ -20,8 +20,8 @@ struct RecipeViewModel {
     var cookingTime: String? = nil
     var displayOptions: (pictureName: String, text: String?, isHidden: Bool) {
         cookingTime == nil ?
-            ("square.split.2x2.fill", yield, true) :
-            ("stopwatch.fill", cookingTime, false)
+            (Constant.ImageName.squares, yield, true) :
+            (Constant.ImageName.stopwatch, cookingTime, false)
     }
 
     // MARK: - Init
@@ -39,10 +39,10 @@ struct RecipeViewModel {
     }
 
     init(recipeEntity: RecipeEntity) {
-        setProperties(name: recipeEntity.name ?? "",
+        setProperties(name: recipeEntity.name ?? Constant.Text.emptyString,
                       data: recipeEntity.pictureData,
-                      ingredients: recipeEntity.ingredientsOverview ?? "",
-                      yield: recipeEntity.yield ?? "",
+                      ingredients: recipeEntity.ingredientsOverview ?? Constant.Text.emptyString,
+                      yield: recipeEntity.yield ?? Constant.Text.emptyString,
                       ingredientsList: recipeEntity.ingredientsOverview?
                         .components(separatedBy: ", ") ?? [],
                       cookingtime: recipeEntity.cookingTime

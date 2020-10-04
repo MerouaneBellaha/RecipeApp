@@ -24,17 +24,13 @@ final class NetworkingService {
 
     func request(ingredientsList: [String], callback: @escaping (Result<EdamamData, RequestError>) -> Void) {
 
-        guard let baseUrl = URL(string: "https://api.edamam.com/search?") else { return }
+        guard let baseUrl = Constant.EdamamAPI.baseURL else { return }
 
         let ingredients = ingredientsList.transformToString
 
         var parameters = [("q", ingredients)]
 
-        let keys = [("app_id", "297e5599"), ("app_key", "d1735c5df8f93d2d20c4849935735f5b")]
-
-        let range = [("from", "0"), ("to", "10")]
-
-        parameters.append(contentsOf: keys + range)
+        parameters.append(contentsOf: EdamamKey.keys + Constant.EdamamAPI.range)
 
         let url = encode(baseUrl: baseUrl, with: parameters)
 
@@ -55,11 +51,7 @@ final class NetworkingService {
         }
     }
 
-    /// Encoding
-    /// - Parameters:
-    ///   - baseUrl: Without any parameters
-    ///   - parameters: Differents api provide by API
-    /// - Returns: Final complete url
+    /// create URL from baseURL and paramaters tupple
     private func encode(baseUrl: URL, with parameters: [(String, Any)]?) -> URL {
         guard var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false), let parameters = parameters, !parameters.isEmpty else { return baseUrl }
         urlComponents.queryItems = [URLQueryItem]()
