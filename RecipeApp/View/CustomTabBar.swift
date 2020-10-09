@@ -16,15 +16,17 @@ final class CustomTabBar: UITabBarController {
     }
 
     private func setCustomTabBar() {
+        // set transparent tabBar
         tabBar.clipsToBounds = true
-        tabBar.barTintColor = #colorLiteral(red: 0.9411764706, green: 0.9490196078, blue: 0.9254901961, alpha: 1)
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
 
         let layer = CAShapeLayer()
-        layer.path = UIBezierPath(roundedRect: CGRect(x: 30, y: tabBar.bounds.minY + 5, width: tabBar.bounds.width - 60, height: tabBar.bounds.height + 10), cornerRadius: (tabBar.frame.width/2)).cgPath
-        layer.borderWidth = 5
+//        layer.path = UIBezierPath(roundedRect: CGRect(x: 30, y: tabBar.bounds.minY + 5, width: tabBar.bounds.width - 60, height: tabBar.bounds.height + 10), cornerRadius: (tabBar.frame.width/2)).cgPath
+
+        layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: tabBar.bounds.minY + 5, width: tabBar.bounds.width, height: tabBar.bounds.height + 30), cornerRadius: (tabBar.frame.width/2)).cgPath
+
         layer.opacity = 1.0
-        layer.isHidden = false
-        layer.masksToBounds = false
         layer.fillColor = UIColor.white.cgColor
 
         tabBar.layer.insertSublayer(layer, at: 0)
