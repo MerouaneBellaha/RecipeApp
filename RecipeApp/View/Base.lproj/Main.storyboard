@@ -286,18 +286,21 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWu-fg-Rmx">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="344"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="344" id="kKF-GU-yYZ"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtm-Ye-bcJ">
                                         <rect key="frame" x="0.0" y="344" width="414" height="552"/>
                                         <color key="backgroundColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="gtm-Ye-bcJ" secondAttribute="height" multiplier="9:12" id="p4N-71-7lc"/>
+                                            <constraint firstAttribute="height" constant="552" id="8tG-NQ-bFQ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LrQ-18-clY">
-                                <rect key="frame" x="20" y="198.5" width="374" height="614.5"/>
+                                <rect key="frame" x="20" y="190" width="374" height="623"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YMA-Ud-3K1">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="210.5"/>
@@ -328,7 +331,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-SS-8w3">
-                                        <rect key="frame" x="0.0" y="271" width="374" height="343.5"/>
+                                        <rect key="frame" x="0.0" y="271" width="374" height="352"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients details :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z56-K3-whm">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -430,7 +433,7 @@
                 <navigationController id="Dtp-uP-1MO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="star.green" id="cdt-zh-vsJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7pn-Z4-IPl">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -454,7 +457,7 @@
                     <tabBarItem key="tabBarItem" title="" image="search.green" id="FwM-i5-KZN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="s1p-RG-J0D">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
