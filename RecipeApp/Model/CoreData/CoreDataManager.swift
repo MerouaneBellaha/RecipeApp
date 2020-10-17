@@ -35,7 +35,7 @@ final class CoreDataManager {
         return favoriteRecipes
     }
 
-    func createFavorite(from recipeViewModel: RecipeViewModel) {
+    func addFavorite(from recipeViewModel: RecipeViewModel) {
         let newRecipe = RecipeEntity(context: context)
         newRecipe.name = recipeViewModel.name
         newRecipe.pictureData = recipeViewModel.pictureData
@@ -43,6 +43,7 @@ final class CoreDataManager {
         newRecipe.yield = recipeViewModel.yield
         newRecipe.ingredientsOverview = recipeViewModel.ingredientsOverview
         newRecipe.ingredientsList = recipeViewModel.ingredients
+        newRecipe.url = recipeViewModel.url
         coreDataStack.saveContext()
     }
 
@@ -52,14 +53,13 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
 
-    // isRecipeRegistered
-    func containsFavorite(named name: String) -> Bool {
+    func isContainingFavorite(named name: String) -> Bool {
         let favorite = loadFavorites(with: name)
         return !favorite.isEmpty
     }
 
-    func deleteAllFavorites() {
-        loadFavorites().forEach { context.delete($0) }
-        coreDataStack.saveContext()
-    }
+//    func deleteAllFavorites() {
+//        loadFavorites().forEach { context.delete($0) }
+//        coreDataStack.saveContext()
+//    }
 }

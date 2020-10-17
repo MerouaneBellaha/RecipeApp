@@ -34,7 +34,7 @@ struct Constant {
     struct ImageName {
         static let squares = "square.split.2x2.fill"
         static let stopwatch = "stopwatch.fill"
-
+        static let noPhoto = "noPhoto"
         static let star = "star"
         static let starFill = "star.fill"
     }
@@ -55,5 +55,6 @@ struct Constant {
         static let yourFood = "Your ingredients"
         static let delete = "Delete"
         static let NA = "N/A"
+        static let noDetails = "There's no details for this recipe. Sorry !"
     }
 }

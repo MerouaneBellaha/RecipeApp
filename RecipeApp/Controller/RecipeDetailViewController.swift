@@ -17,6 +17,7 @@ final class RecipeDetailViewController: UIViewController {
     @IBOutlet private weak var cookingTimeLabel: UILabel!
     @IBOutlet private weak var yieldsLabel: UILabel!
     @IBOutlet private weak var favoriteButton: FavoriteButton!
+    @IBOutlet private weak var fullRecipeButton: UIButton!
 
     // MARK: - Properties
 
@@ -42,7 +43,6 @@ final class RecipeDetailViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("ok")
         setNavigationBarColor(with: #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1))
     }
 
@@ -51,11 +51,18 @@ final class RecipeDetailViewController: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: FavoriteButton) {
         sender.isFavorite ?
             coreDataManager?.deleteFavorite(named: recipeViewModel.name) :
-            coreDataManager?.createFavorite(from: recipeViewModel)
+            coreDataManager?.addFavorite(from: recipeViewModel)
         sender.isFavorite.toggle()
         popViewControllerIfNecessary()
     }
 
+    @IBAction func fullRecipeButtonTapped(_ sender: UIButton) {
+        guard let url = URL(string: recipeViewModel.url) else {
+            setAlertVc(with: Constant.Text.noDetails)
+            return
+        }
+        UIApplication.shared.open(url)
+    }
     // MARK: - Methods
 
     private func popViewControllerIfNecessary() {
@@ -72,21 +79,21 @@ final class RecipeDetailViewController: UIViewController {
     }
 
     private func setFavoriteButton() {
-        coreDataManager?.containsFavorite(named: recipeViewModel.name) == true ?
+        coreDataManager?.isContainingFavorite(named: recipeViewModel.name) == true ?
             (favoriteButton.isFavorite = true) :
             (favoriteButton.isFavorite = false)
     }
 
     private func setUIProperties() {
-        guard let pictureData = recipeViewModel.pictureData else {
-            return recipeImage.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        }
-        recipeImage.image = UIImage(data: pictureData)
+        recipeImage.image = recipeViewModel.pictureData == nil ?
+            UIImage(named: Constant.ImageName.noPhoto) :
+            UIImage(data: recipeViewModel.pictureData!)
         title = recipeViewModel.name
         background.backgroundColor = colorTheme
         cookingTimeLabel.text = recipeViewModel.cookingTime == nil ?
             Constant.Text.emptyString : "cooking time : \(recipeViewModel.cookingTime ?? Constant.Text.NA)"
         yieldsLabel.text = recipeViewModel.yield
+        fullRecipeButton.setTitleColor(colorTheme, for: .normal)
     }
 
     private func setNavigationBarColor(with color: UIColor) {

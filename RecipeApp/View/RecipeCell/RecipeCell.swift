@@ -47,7 +47,7 @@ final class RecipeCell: UITableViewCell {
     // TODO: Add default picture if no Data
     private func setPicture(from: Data?) {
         guard let pictureData = recipe?.pictureData else {
-            return picture.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            return picture.image = UIImage(named: Constant.ImageName.noPhoto)
         }
         picture.image = UIImage(data: pictureData)
     }

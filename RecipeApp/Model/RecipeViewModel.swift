@@ -12,10 +12,10 @@ struct RecipeViewModel {
 
     // MARK: - Properties
 
-    var name = ""
+    var name = Constant.Text.emptyString
     var pictureData: Data? = nil
-    var ingredientsOverview = ""
-    var yield = ""
+    var ingredientsOverview = Constant.Text.emptyString
+    var yield = Constant.Text.emptyString
     var ingredients: [String] = []
     var cookingTime: String? = nil
     var displayOptions: (pictureName: String, text: String?, isHidden: Bool) {
@@ -23,18 +23,20 @@ struct RecipeViewModel {
             (Constant.ImageName.squares, yield, true) :
             (Constant.ImageName.stopwatch, cookingTime, false)
     }
+    var url = Constant.Text.emptyString
 
     // MARK: - Init
 
     init(hit: Hit) {
         setProperties(name: hit.recipe.label,
-                      data: hit.recipe.image.asData,
+                      data: hit.recipe.image?.asData,
                       ingredients: hit.recipe.ingredientLines.joined(separator: ", "),
-                      yield: "\(hit.recipe.yield) parts",
+                      yield: "\(hit.recipe.yield) share",
                       ingredientsList: hit.recipe.ingredientLines,
                       cookingtime: hit.recipe.totalTime == 0 ?
                         nil :
-                        displayStringFormat(from: hit.recipe.totalTime)
+                        displayStringFormat(from: hit.recipe.totalTime),
+                      url: hit.recipe.url ?? Constant.Text.emptyString
         )
     }
 
@@ -44,7 +46,8 @@ struct RecipeViewModel {
                       ingredients: recipeEntity.ingredientsOverview ?? Constant.Text.emptyString,
                       yield: recipeEntity.yield ?? Constant.Text.emptyString,
                       ingredientsList: recipeEntity.ingredientsList ?? [],
-                      cookingtime: recipeEntity.cookingTime
+                      cookingtime: recipeEntity.cookingTime,
+                      url: recipeEntity.url ?? Constant.Text.emptyString
         )
     }
 
@@ -55,13 +58,15 @@ struct RecipeViewModel {
                                 ingredients: String,
                                 yield: String,
                                 ingredientsList: [String],
-                                cookingtime: String?) {
+                                cookingtime: String?,
+                                url: String) {
         self.name = name
         self.pictureData = data
         self.ingredientsOverview = ingredients
         self.yield = yield
         self.ingredients = ingredientsList
         self.cookingTime = cookingtime
+        self.url = url
     }
 
     /// convert time property from api into hours, minutes format
