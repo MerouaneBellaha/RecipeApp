@@ -17,6 +17,7 @@ final class RecipeDetailViewController: UIViewController {
     @IBOutlet private weak var cookingTimeLabel: UILabel!
     @IBOutlet private weak var yieldsLabel: UILabel!
     @IBOutlet private weak var favoriteButton: FavoriteButton!
+    @IBOutlet private weak var fullRecipeButton: UIButton!
 
     // MARK: - Properties
 
@@ -31,7 +32,6 @@ final class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         setCoreDataManager()
         setUIProperties()
-//        UIApplication.shared.open(URL(string: "")!)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +56,13 @@ final class RecipeDetailViewController: UIViewController {
         popViewControllerIfNecessary()
     }
 
+    @IBAction func fullRecipeButtonTapped(_ sender: UIButton) {
+        guard let url = URL(string: recipeViewModel.url) else {
+            setAlertVc(with: Constant.Text.noDetails)
+            return
+        }
+        UIApplication.shared.open(url)
+    }
     // MARK: - Methods
 
     private func popViewControllerIfNecessary() {
@@ -87,6 +94,7 @@ final class RecipeDetailViewController: UIViewController {
         cookingTimeLabel.text = recipeViewModel.cookingTime == nil ?
             Constant.Text.emptyString : "cooking time : \(recipeViewModel.cookingTime ?? Constant.Text.NA)"
         yieldsLabel.text = recipeViewModel.yield
+        fullRecipeButton.setTitleColor(colorTheme, for: .normal)
     }
 
     private func setNavigationBarColor(with color: UIColor) {

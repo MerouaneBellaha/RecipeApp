@@ -55,5 +55,6 @@ struct Constant {
         static let yourFood = "Your ingredients"
         static let delete = "Delete"
         static let NA = "N/A"
+        static let noDetails = "There's no details for this recipe. Sorry !"
     }
 }

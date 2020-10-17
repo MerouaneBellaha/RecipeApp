@@ -325,7 +325,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9S-bW-iNl">
-                                                <rect key="frame" x="264" y="160.5" width="90" height="30"/>
+                                                <rect key="frame" x="272" y="168.5" width="90" height="30"/>
                                                 <color key="backgroundColor" red="0.94093650579999999" green="0.94954043629999996" blue="0.92448878290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="5cr-AC-RZx"/>
@@ -339,16 +339,31 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.40000000000000002"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" red="0.94093650579999999" green="0.94954043629999996" blue="0.92448878290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="8"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="fullRecipeButtonTapped:" destination="1aa-K5-ktP" eventType="touchUpInside" id="2mi-3Y-TR5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="YMA-Ud-3K1" firstAttribute="top" secondItem="m7r-3d-BND" secondAttribute="top" id="FlN-gE-VbO"/>
                                             <constraint firstAttribute="bottom" secondItem="YMA-Ud-3K1" secondAttribute="bottom" id="Gha-Mg-Qam"/>
-                                            <constraint firstAttribute="trailing" secondItem="D9S-bW-iNl" secondAttribute="trailing" constant="20" id="Jyr-HZ-hIU"/>
+                                            <constraint firstAttribute="trailing" secondItem="D9S-bW-iNl" secondAttribute="trailing" constant="12" id="Jyr-HZ-hIU"/>
                                             <constraint firstAttribute="trailing" secondItem="YMA-Ud-3K1" secondAttribute="trailing" id="Kdb-aT-rUa"/>
-                                            <constraint firstAttribute="bottom" secondItem="D9S-bW-iNl" secondAttribute="bottom" constant="20" id="Pmr-dx-q4T"/>
+                                            <constraint firstAttribute="bottom" secondItem="D9S-bW-iNl" secondAttribute="bottom" constant="12" id="Pmr-dx-q4T"/>
                                             <constraint firstItem="YMA-Ud-3K1" firstAttribute="leading" secondItem="m7r-3d-BND" secondAttribute="leading" id="bcN-mN-O43"/>
                                             <constraint firstAttribute="width" secondItem="m7r-3d-BND" secondAttribute="height" multiplier="16:9" id="gIy-HY-Ik0"/>
                                             <constraint firstItem="D9S-bW-iNl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m7r-3d-BND" secondAttribute="leading" constant="20" symbolic="YES" id="mk5-VY-dr6"/>
@@ -447,6 +462,7 @@
                         <outlet property="background" destination="gtm-Ye-bcJ" id="kyO-Ze-RQb"/>
                         <outlet property="cookingTimeLabel" destination="NJW-La-mlZ" id="zau-LZ-oin"/>
                         <outlet property="favoriteButton" destination="PMF-k1-eec" id="5Oe-ez-bSo"/>
+                        <outlet property="fullRecipeButton" destination="D9S-bW-iNl" id="NyT-G8-pO1"/>
                         <outlet property="recipeImage" destination="YMA-Ud-3K1" id="gtL-go-xrK"/>
                         <outlet property="yieldsLabel" destination="8oj-PK-iSN" id="Xgp-1k-h1Q"/>
                     </connections>
