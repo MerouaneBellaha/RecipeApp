@@ -31,6 +31,7 @@ final class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         setCoreDataManager()
         setUIProperties()
+//        UIApplication.shared.open(URL(string: "")!)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +43,6 @@ final class RecipeDetailViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("ok")
         setNavigationBarColor(with: #colorLiteral(red: 0.4549019608, green: 0.6235294118, blue: 0.4078431373, alpha: 1))
     }
 

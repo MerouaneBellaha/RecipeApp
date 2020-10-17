@@ -23,6 +23,7 @@ struct RecipeViewModel {
             (Constant.ImageName.squares, yield, true) :
             (Constant.ImageName.stopwatch, cookingTime, false)
     }
+    var url = ""
 
     // MARK: - Init
 
@@ -34,7 +35,8 @@ struct RecipeViewModel {
                       ingredientsList: hit.recipe.ingredientLines,
                       cookingtime: hit.recipe.totalTime == 0 ?
                         nil :
-                        displayStringFormat(from: hit.recipe.totalTime)
+                        displayStringFormat(from: hit.recipe.totalTime),
+                      url: hit.recipe.url
         )
     }
 
@@ -44,7 +46,8 @@ struct RecipeViewModel {
                       ingredients: recipeEntity.ingredientsOverview ?? Constant.Text.emptyString,
                       yield: recipeEntity.yield ?? Constant.Text.emptyString,
                       ingredientsList: recipeEntity.ingredientsList ?? [],
-                      cookingtime: recipeEntity.cookingTime
+                      cookingtime: recipeEntity.cookingTime,
+                      url: recipeEntity.url ?? ""
         )
     }
 
@@ -55,13 +58,15 @@ struct RecipeViewModel {
                                 ingredients: String,
                                 yield: String,
                                 ingredientsList: [String],
-                                cookingtime: String?) {
+                                cookingtime: String?,
+                                url: String) {
         self.name = name
         self.pictureData = data
         self.ingredientsOverview = ingredients
         self.yield = yield
         self.ingredients = ingredientsList
         self.cookingTime = cookingtime
+        self.url = url
     }
 
     /// convert time property from api into hours, minutes format

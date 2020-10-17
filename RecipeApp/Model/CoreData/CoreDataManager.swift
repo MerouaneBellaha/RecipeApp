@@ -43,6 +43,7 @@ final class CoreDataManager {
         newRecipe.yield = recipeViewModel.yield
         newRecipe.ingredientsOverview = recipeViewModel.ingredientsOverview
         newRecipe.ingredientsList = recipeViewModel.ingredients
+        newRecipe.url = recipeViewModel.url
         coreDataStack.saveContext()
     }
 

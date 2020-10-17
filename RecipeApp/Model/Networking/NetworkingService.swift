@@ -28,7 +28,6 @@ final class NetworkingService {
         var parameters = [("q", ingredients)]
         parameters.append(contentsOf: EdamamKey.keys + Constant.EdamamAPI.range)
         let url = encode(baseUrl: baseUrl, with: parameters)
-
         session.request(with: url) { responseData in
             guard let data = responseData.data else {
                 callback(.failure(.noData))
