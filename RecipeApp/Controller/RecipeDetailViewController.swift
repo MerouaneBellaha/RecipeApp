@@ -51,7 +51,7 @@ final class RecipeDetailViewController: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: FavoriteButton) {
         sender.isFavorite ?
             coreDataManager?.deleteFavorite(named: recipeViewModel.name) :
-            coreDataManager?.createFavorite(from: recipeViewModel)
+            coreDataManager?.addFavorite(from: recipeViewModel)
         sender.isFavorite.toggle()
         popViewControllerIfNecessary()
     }
@@ -79,7 +79,7 @@ final class RecipeDetailViewController: UIViewController {
     }
 
     private func setFavoriteButton() {
-        coreDataManager?.containsFavorite(named: recipeViewModel.name) == true ?
+        coreDataManager?.isContainingFavorite(named: recipeViewModel.name) == true ?
             (favoriteButton.isFavorite = true) :
             (favoriteButton.isFavorite = false)
     }
