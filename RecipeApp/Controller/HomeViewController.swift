@@ -57,7 +57,6 @@ final class HomeViewController: UIViewController {
             }
             self.loader = loader
         }
-
     }
 
     // MARK: - Methods

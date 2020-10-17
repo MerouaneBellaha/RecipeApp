@@ -42,6 +42,7 @@ final class CoreDataManager {
         newRecipe.cookingTime = recipeViewModel.cookingTime
         newRecipe.yield = recipeViewModel.yield
         newRecipe.ingredientsOverview = recipeViewModel.ingredientsOverview
+        newRecipe.ingredientsList = recipeViewModel.ingredients
         coreDataStack.saveContext()
     }
 
@@ -51,6 +52,7 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
 
+    // isRecipeRegistered
     func containsFavorite(named name: String) -> Bool {
         let favorite = loadFavorites(with: name)
         return !favorite.isEmpty

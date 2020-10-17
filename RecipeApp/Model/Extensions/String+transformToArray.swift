@@ -13,7 +13,9 @@ extension String {
     /// take a String, separate elements by .punctuationCharacters in a [String], remove .whitepaces and add "🥕 " in front for each elements
     var transformToArray: [String] {
         return self.components(separatedBy: .punctuationCharacters)
+            .filter { $0 != "" }
             .map { $0.trimmingCharacters(in: .whitespaces)}
             .map { "🥕 \($0)"}
     }
 }
+
