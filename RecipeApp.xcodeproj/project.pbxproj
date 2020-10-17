@@ -37,6 +37,7 @@
 		CBB59825253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB59824253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift */; };
 		CBB59837253B555900C40D3F /* FakeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB59836253B555900C40D3F /* FakeCoreDataStack.swift */; };
 		CBB5983B253B5B4A00C40D3F /* CoreDataManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5983A253B5B4A00C40D3F /* CoreDataManagerTestCase.swift */; };
+		CBB5984A253B632E00C40D3F /* ExtensionsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB59849253B632E00C40D3F /* ExtensionsTestCase.swift */; };
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
 		CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* HomeViewController.swift */; };
 		CBC3250D2515E9100007C146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC3250B2515E9100007C146 /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		CBB59824253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModelFromRecipeEntityTestCase.swift; sourceTree = "<group>"; };
 		CBB59836253B555900C40D3F /* FakeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCoreDataStack.swift; sourceTree = "<group>"; };
 		CBB5983A253B5B4A00C40D3F /* CoreDataManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTestCase.swift; sourceTree = "<group>"; };
+		CBB59849253B632E00C40D3F /* ExtensionsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTestCase.swift; sourceTree = "<group>"; };
 		CBC325022515E9100007C146 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC325052515E9100007C146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBC325092515E9100007C146 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				CBB59848253B628300C40D3F /* CoreDataTest */,
 				CBB59828253B513B00C40D3F /* RecipeModelTest */,
 				CB6DB229251F307D00097010 /* NetworkingTest */,
+				CBB59849253B632E00C40D3F /* ExtensionsTestCase.swift */,
 				CB7280B9251DD70200370A42 /* Info.plist */,
 			);
 			path = RecipeAppTests;
@@ -479,6 +482,7 @@
 				CBB59825253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift in Sources */,
 				CBB59837253B555900C40D3F /* FakeCoreDataStack.swift in Sources */,
 				CB7280C2251DD73300370A42 /* FakeResponseData.swift in Sources */,
+				CBB5984A253B632E00C40D3F /* ExtensionsTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
