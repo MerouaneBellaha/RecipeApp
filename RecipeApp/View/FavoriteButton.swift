@@ -13,9 +13,10 @@ final class FavoriteButton: UIBarButtonItem {
     /// didSet: Change icon accordingly with isFavorite value
     var isFavorite: Bool = false {
         didSet {
-            self.image = isFavorite ?
+            image = isFavorite ?
                 UIImage(named: Constant.ImageName.starFill) :
                 UIImage(named: Constant.ImageName.star)
         }
     }
 }
+

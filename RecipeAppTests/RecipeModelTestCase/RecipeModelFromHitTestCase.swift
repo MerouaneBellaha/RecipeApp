@@ -1,5 +1,5 @@
 //
-//  RecipeModelTestCase.swift
+//  RecipeModelFromHitTestCase.swift
 //  RecipeAppTests
 //
 //  Created by Merouane Bellaha on 26/09/2020.
@@ -9,23 +9,23 @@
 import XCTest
 @testable import RecipeApp
 
-class RecipeModelTestCase: XCTestCase {
+class RecipeModelFromHitTestCase: XCTestCase {
 
     var hit: Hit!
     var recipeModel: RecipeViewModel!
 
     override func setUpWithError() throws {
-        hit = setUpDefaultHit(totalTime: 120)
+        hit = setUpDefaultHit(totalTime: 120, url: "https://www.edamam.com/")
         recipeModel = RecipeViewModel(hit: hit)
     }
 
-    func testOverviewIngredientsStringFormatting() {
+    func testIngredientsOverviewValue() {
         let expectedResult = "Buy the carrot, Cook the carrot"
 
         XCTAssertEqual(recipeModel.ingredientsOverview, expectedResult)
     }
 
-    func testNameStringFormatting() {
+    func testNameValue() {
         let expectedResult = "Carrot Cake"
 
         XCTAssertEqual(recipeModel.name, expectedResult)
@@ -33,17 +33,17 @@ class RecipeModelTestCase: XCTestCase {
 
     func testImageDataFormatting() {
 
-        XCTAssertTrue((recipeModel?.imageData) != nil)
-        XCTAssertEqual(recipeModel.imageData?.description, "43609 bytes")
+        XCTAssertTrue((recipeModel?.pictureData) != nil)
+        XCTAssertEqual(recipeModel.pictureData?.description, "43609 bytes")
     }
 
     func testYieldStringFormatting() {
-        let expectedResult = "4 parts"
+        let expectedResult = "4 share"
 
         XCTAssertEqual(recipeModel.yield, expectedResult)
     }
 
-    func testIngredientsStringFormatting() {
+    func testIngredientsValue() {
         let expectedResult = [
             "Buy the carrot",
             "Cook the carrot",
@@ -58,11 +58,19 @@ class RecipeModelTestCase: XCTestCase {
         XCTAssertEqual(recipeModel.cookingTime, expectedResult)
     }
 
+    func testTimeStringFormattingWhenTimeIsMinuteOnly() {
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 10, url: nil))
+
+        let expectedResult = "10m"
+
+        XCTAssertEqual(recipeModel.cookingTime, expectedResult)
+    }
+
     func testTimeStringFormattingWhenTimeIs0() {
-        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0))
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0, url: nil))
+
 
         let expectedResult: String? = nil
-
         XCTAssertEqual(recipeModel.cookingTime, expectedResult)
     }
 
@@ -75,7 +83,7 @@ class RecipeModelTestCase: XCTestCase {
     }
 
     func testDisplayOptionsTupleFormattingWhenTimeIstNil() {
-        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0))
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0, url: nil))
 
         let expectedResult = ("square.split.2x2.fill", recipeModel.yield, true)
 
@@ -84,10 +92,23 @@ class RecipeModelTestCase: XCTestCase {
         XCTAssertEqual(recipeModel.displayOptions.2, expectedResult.2)
     }
 
-    private func setUpDefaultHit(totalTime: Int) -> Hit {
+    func testUrlValue() {
+        let expectedResult = "https://www.edamam.com/"
+
+        XCTAssertEqual(recipeModel.url, expectedResult)
+    }
+
+    func testNilUrlValue() {
+        recipeModel = RecipeViewModel(hit: setUpDefaultHit(totalTime: 0, url: nil))
+
+        XCTAssertEqual(recipeModel.url, Constant.Text.emptyString)
+    }
+
+    private func setUpDefaultHit(totalTime: Int, url: String?) -> Hit {
         return Hit(recipe: Recipe(label: "Carrot Cake",
                                   image: "https://www.edamam.com/web-img/6b6/6b6d059217d67cb9b454edd6cded1144.JPG",
                                   yield: 4,
+                                  url: url,
                                   ingredientLines: [
                                     "Buy the carrot",
                                     "Cook the carrot",

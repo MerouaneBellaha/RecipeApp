@@ -85,10 +85,9 @@ final class RecipeDetailViewController: UIViewController {
     }
 
     private func setUIProperties() {
-        guard let pictureData = recipeViewModel.pictureData else {
-            return recipeImage.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        }
-        recipeImage.image = UIImage(data: pictureData)
+        recipeImage.image = recipeViewModel.pictureData == nil ?
+            UIImage(named: Constant.ImageName.noPhoto) :
+            UIImage(data: recipeViewModel.pictureData!)
         title = recipeViewModel.name
         background.backgroundColor = colorTheme
         cookingTimeLabel.text = recipeViewModel.cookingTime == nil ?

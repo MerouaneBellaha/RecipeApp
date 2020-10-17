@@ -14,7 +14,7 @@
 		CB1C0AFB2517518200BE9AD3 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1C0AF92517518200BE9AD3 /* RecipeCell.xib */; };
 		CB3B3C5125208E60007C6EDB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B3C4925208D5D007C6EDB /* CoreDataManager.swift */; };
 		CB3B3C5425208E63007C6EDB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B3C4825208D5A007C6EDB /* CoreDataStack.swift */; };
-		CB6DB238251F366F00097010 /* RecipeModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */; };
+		CB6DB238251F366F00097010 /* RecipeModelFromHitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB237251F366F00097010 /* RecipeModelFromHitTestCase.swift */; };
 		CB6DB249251F501E00097010 /* UIColor+getColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB248251F501E00097010 /* UIColor+getColorTheme.swift */; };
 		CB6DB24D251F511F00097010 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DB24C251F511F00097010 /* RecipeDetailViewController.swift */; };
 		CB7280A6251DC6AF00370A42 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7280A5251DC6AF00370A42 /* NetworkingService.swift */; };
@@ -34,6 +34,8 @@
 		CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */; };
 		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
 		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
+		CBB59825253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB59824253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift */; };
+		CBB59837253B555900C40D3F /* FakeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB59836253B555900C40D3F /* FakeCoreDataStack.swift */; };
 		CBC325062515E9100007C146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325052515E9100007C146 /* AppDelegate.swift */; };
 		CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC325092515E9100007C146 /* HomeViewController.swift */; };
 		CBC3250D2515E9100007C146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC3250B2515E9100007C146 /* Main.storyboard */; };
@@ -65,7 +67,7 @@
 		CB1C0AF92517518200BE9AD3 /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 		CB3B3C4825208D5A007C6EDB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CB3B3C4925208D5D007C6EDB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModelTestCase.swift; sourceTree = "<group>"; };
+		CB6DB237251F366F00097010 /* RecipeModelFromHitTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModelFromHitTestCase.swift; sourceTree = "<group>"; };
 		CB6DB248251F501E00097010 /* UIColor+getColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+getColorTheme.swift"; sourceTree = "<group>"; };
 		CB6DB24C251F511F00097010 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		CB7280A5251DC6AF00370A42 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+setAlertVc.swift"; sourceTree = "<group>"; };
 		CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
 		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		CBB59824253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModelFromRecipeEntityTestCase.swift; sourceTree = "<group>"; };
+		CBB59836253B555900C40D3F /* FakeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCoreDataStack.swift; sourceTree = "<group>"; };
 		CBC325022515E9100007C146 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC325052515E9100007C146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBC325092515E9100007C146 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -179,9 +183,10 @@
 		CB7280B6251DD70200370A42 /* RecipeAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				CB6DB237251F366F00097010 /* RecipeModelTestCase.swift */,
+				CBB59828253B513B00C40D3F /* RecipeModelTestCase */,
 				CB6DB229251F307D00097010 /* NetworkingTest */,
 				CB7280B9251DD70200370A42 /* Info.plist */,
+				CBB59836253B555900C40D3F /* FakeCoreDataStack.swift */,
 			);
 			path = RecipeAppTests;
 			sourceTree = "<group>";
@@ -194,6 +199,15 @@
 				CB728149251E446300370A42 /* String+asData.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CBB59828253B513B00C40D3F /* RecipeModelTestCase */ = {
+			isa = PBXGroup;
+			children = (
+				CB6DB237251F366F00097010 /* RecipeModelFromHitTestCase.swift */,
+				CBB59824253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift */,
+			);
+			path = RecipeModelTestCase;
 			sourceTree = "<group>";
 		};
 		CBC324F92515E90F0007C146 = {
@@ -448,8 +462,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB7280C9251DD78400370A42 /* MockNetworkingSession.swift in Sources */,
-				CB6DB238251F366F00097010 /* RecipeModelTestCase.swift in Sources */,
+				CB6DB238251F366F00097010 /* RecipeModelFromHitTestCase.swift in Sources */,
 				CB7280B8251DD70200370A42 /* NetworkingServiceTestCase.swift in Sources */,
+				CBB59825253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift in Sources */,
+				CBB59837253B555900C40D3F /* FakeCoreDataStack.swift in Sources */,
 				CB7280C2251DD73300370A42 /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

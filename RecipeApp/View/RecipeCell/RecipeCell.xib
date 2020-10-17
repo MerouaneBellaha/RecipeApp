@@ -177,7 +177,7 @@
                 <outlet property="rightDetailText" destination="WvD-Q2-fHg" id="gKc-GZ-q5v"/>
                 <outlet property="yield" destination="dYz-cQ-kdV" id="aMO-SM-780"/>
             </connections>
-            <point key="canvasLocation" x="227.536231884058" y="140.29017857142856"/>
+            <point key="canvasLocation" x="227.536231884058" y="139.62053571428569"/>
         </tableViewCell>
     </objects>
     <resources>
