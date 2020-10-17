@@ -2,12 +2,13 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="RecipeEntity" representedClassName=".RecipeEntity" syncable="YES" codeGenerationType="class">
         <attribute name="cookingTime" optional="YES" attributeType="String"/>
+        <attribute name="ingredientsList" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName=".Array&lt;String&gt;"/>
         <attribute name="ingredientsOverview" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="pictureData" optional="YES" attributeType="Binary"/>
         <attribute name="yield" attributeType="String"/>
     </entity>
     <elements>
-        <element name="RecipeEntity" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="RecipeEntity" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>
