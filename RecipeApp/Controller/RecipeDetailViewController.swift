@@ -49,11 +49,13 @@ final class RecipeDetailViewController: UIViewController {
     // MARK: - @IBAction methods
 
     @IBAction func favoriteButtonTapped(_ sender: FavoriteButton) {
-        sender.isFavorite ?
-            coreDataManager?.deleteFavorite(named: recipeViewModel.name) :
+        if sender.isFavorite {
+            setActionsAlert(title: Constant.Text.holdOn, message: Constant.Text.youSure) { [unowned self] in
+                self.manageUserChoice($0) }
+        } else {
             coreDataManager?.addFavorite(from: recipeViewModel)
-        sender.isFavorite.toggle()
-        popViewControllerIfNecessary()
+            sender.isFavorite.toggle()
+        }
     }
 
     @IBAction func fullRecipeButtonTapped(_ sender: UIButton) {
@@ -64,6 +66,17 @@ final class RecipeDetailViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     // MARK: - Methods
+
+    private func manageUserChoice(_ choice: UserChoice) {
+        switch choice {
+        case .doNothing:
+            dismiss(animated: true)
+        case .deleteFavorite:
+            coreDataManager?.deleteFavorite(named: recipeViewModel.name)
+            favoriteButton.isFavorite.toggle()
+            popViewControllerIfNecessary()
+        }
+    }
 
     private func popViewControllerIfNecessary() {
         guard favoriteButton.isFavorite == false,
