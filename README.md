@@ -15,6 +15,6 @@ Search for recipes with ingredients you already have. Found something tasty ? Ad
   
 # Screens & Functionalities
   
-![](/docPag1.png)  
-![](/docPag2.png)  
-![](/docPag3.png)  
+![](/docPage1.png)
+![](/docPage2.png)  
+![](/docPage3.png)  
