@@ -112,6 +112,7 @@ final class RecipeDetailViewController: UIViewController {
     private func setNavigationBarColor(with color: UIColor) {
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: color]
         navigationController?.navigationBar.tintColor = color
+        favoriteButton.tintColor = #colorLiteral(red: 0.9254901961, green: 0.6862745098, blue: 0.3725490196, alpha: 1)
     }
 }
 
