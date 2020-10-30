@@ -115,9 +115,3 @@ extension RecipeDetailViewController: UITableViewDataSource {
         return cell
     }
 }
-
-// MARK: - UITableViewDelegate
-
-extension RecipeDetailViewController: UITableViewDelegate {
-
-}

@@ -19,4 +19,3 @@ final class FavoriteButton: UIBarButtonItem {
         }
     }
 }
-

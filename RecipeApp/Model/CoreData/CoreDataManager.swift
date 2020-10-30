@@ -57,9 +57,4 @@ final class CoreDataManager {
         let favorite = loadFavorites(with: name)
         return !favorite.isEmpty
     }
-
-//    func deleteAllFavorites() {
-//        loadFavorites().forEach { context.delete($0) }
-//        coreDataStack.saveContext()
-//    }
 }

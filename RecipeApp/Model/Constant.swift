@@ -45,11 +45,11 @@ struct Constant {
 
     struct Text {
         static let emptyString = ""
-        static let noFoodToAdd = "No food to add !\nPlease add some to continue..."
-        static let cantAddMoreFood = "You can't add more food !\nRemove some to add more..."
+        static let noFoodToAdd = "No ingredient to add !\nPlease add some to continue..."
+        static let cantAddMoreFood = "You can't add more ingredient !\nRemove some to add more..."
         static let wait = "Please wait !"
         static let gettingRecipes = "We're getting your recipes !"
-        static let foodDoesntExist = "At least one your food doesn't exist.\nPlease check your spelling..."
+        static let foodDoesntExist = "At least one your ingredient doesn't exist.\nPlease check your spelling..."
         static let swipeToRemove = "Swipe left to remove an ingredient"
         static let addFood = "Add some ingredients to start !"
         static let yourFood = "Your ingredients"

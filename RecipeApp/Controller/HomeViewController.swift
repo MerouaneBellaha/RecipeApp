@@ -123,15 +123,3 @@ extension HomeViewController: UITableViewDataSource {
         return cell
     }
 }
-
-//TODO: Remove this when projet is done
-
-// When constraints conflict, help to identify which constraints is faulty
-
-extension NSLayoutConstraint {
-
-    override public var description: String {
-        let id = identifier ?? ""
-        return "id: \(id), constant: \(constant)"
-    }
-}
