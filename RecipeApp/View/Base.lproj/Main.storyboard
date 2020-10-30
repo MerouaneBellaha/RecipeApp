@@ -237,7 +237,7 @@
                             <outlet property="delegate" destination="aWn-Lv-TDz" id="zNl-3Y-GGq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recipes" id="nmK-1V-z1L">
+                    <navigationItem key="navigationItem" title="Recipes" largeTitleDisplayMode="always" id="nmK-1V-z1L">
                         <barButtonItem key="backBarButtonItem" title="Recipes" id="7bI-iP-0c9"/>
                     </navigationItem>
                     <connections>
@@ -541,7 +541,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qm0-gJ-CCn"/>
+        <segue reference="jQa-ga-bpV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

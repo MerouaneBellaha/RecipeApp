@@ -44,7 +44,6 @@ final class RecipeCell: UITableViewCell {
 
     // MARK: - Methods
 
-    // TODO: Add default picture if no Data
     private func setPicture(from: Data?) {
         guard let pictureData = recipe?.pictureData else {
             return picture.image = UIImage(named: Constant.ImageName.noPhoto)

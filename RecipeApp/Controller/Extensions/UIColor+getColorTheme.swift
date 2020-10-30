@@ -13,7 +13,7 @@ extension UIColor {
     /// get a UIColor accordingly to the index
     static func getColorTheme(from index: Int) -> UIColor {
         let step = reduce(index, by: 4)
-        let colors = [#colorLiteral(red: 0.4723377824, green: 0.6867337227, blue: 0.4118994474, alpha: 1), #colorLiteral(red: 0.2952582538, green: 0.4324035943, blue: 0.7228902578, alpha: 1), #colorLiteral(red: 0.9382540584, green: 0.4337904453, blue: 0.2775209248, alpha: 1), #colorLiteral(red: 0.9254901961, green: 0.6862745098, blue: 0.3725490196, alpha: 1)]
+        let colors = [#colorLiteral(red: 0.4705882353, green: 0.6862745098, blue: 0.4117647059, alpha: 1), #colorLiteral(red: 0.2952582538, green: 0.4324035943, blue: 0.7228902578, alpha: 1), #colorLiteral(red: 0.937254902, green: 0.4352941176, blue: 0.2784313725, alpha: 1), #colorLiteral(red: 0.9254901961, green: 0.6862745098, blue: 0.3725490196, alpha: 1)]
         return colors[step]
     }
 

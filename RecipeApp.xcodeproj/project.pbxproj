@@ -187,9 +187,9 @@
 		CB7280B6251DD70200370A42 /* RecipeAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB6DB229251F307D00097010 /* NetworkingTest */,
 				CBB59848253B628300C40D3F /* CoreDataTest */,
 				CBB59828253B513B00C40D3F /* RecipeModelTest */,
-				CB6DB229251F307D00097010 /* NetworkingTest */,
 				CBB59849253B632E00C40D3F /* ExtensionsTestCase.swift */,
 				CB7280B9251DD70200370A42 /* Info.plist */,
 			);
