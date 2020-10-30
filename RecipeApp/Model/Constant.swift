@@ -56,5 +56,8 @@ struct Constant {
         static let delete = "Delete"
         static let NA = "N/A"
         static let noDetails = "There's no details for this recipe. Sorry !"
+        static let holdOn = "Hold on !"
+        static let youSure = "Are you sure you want to remove this recipe from your favorite ?"
+        static let addFavorite = "Add some recipes to your favorite to start !"
     }
 }

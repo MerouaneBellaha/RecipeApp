@@ -31,7 +31,7 @@
 		CB759EF62529FDB700D4EC0B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB759EF52529FDB700D4EC0B /* Constant.swift */; };
 		CB759EFA252A082500D4EC0B /* EdamamKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB759EF9252A082500D4EC0B /* EdamamKey.swift */; };
 		CB759F02252A426B00D4EC0B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB759F01252A426B00D4EC0B /* CustomTabBar.swift */; };
-		CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */; };
+		CBA060FA2516DE5400AC03C4 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA060F92516DE5400AC03C4 /* UIViewController+Alert.swift */; };
 		CBA5966F2516BC29000AC461 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */; };
 		CBA596712516C61A000AC461 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA596702516C61A000AC461 /* CustomTextField.swift */; };
 		CBB59825253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB59824253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift */; };
@@ -88,7 +88,7 @@
 		CB759EF52529FDB700D4EC0B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		CB759EF9252A082500D4EC0B /* EdamamKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamKey.swift; sourceTree = "<group>"; };
 		CB759F01252A426B00D4EC0B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+setAlertVc.swift"; sourceTree = "<group>"; };
+		CBA060F92516DE5400AC03C4 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		CBA5966E2516BC29000AC461 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
 		CBA596702516C61A000AC461 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CBB59824253B513400C40D3F /* RecipeModelFromRecipeEntityTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModelFromRecipeEntityTestCase.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 		CBC4D2C625175F010073FD6A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CBA060F92516DE5400AC03C4 /* UIViewController+setAlertVc.swift */,
+				CBA060F92516DE5400AC03C4 /* UIViewController+Alert.swift */,
 				CB6DB248251F501E00097010 /* UIColor+getColorTheme.swift */,
 			);
 			path = Extensions;
@@ -493,7 +493,7 @@
 				CB3B3C5425208E63007C6EDB /* CoreDataStack.swift in Sources */,
 				CB72813E251E425800370A42 /* String+transformToArray.swift in Sources */,
 				CB1C0AF72517514D00BE9AD3 /* UIView+shadow.swift in Sources */,
-				CBA060FA2516DE5400AC03C4 /* UIViewController+setAlertVc.swift in Sources */,
+				CBA060FA2516DE5400AC03C4 /* UIViewController+Alert.swift in Sources */,
 				CBC3250A2515E9100007C146 /* HomeViewController.swift in Sources */,
 				CBD706A52528A80900568539 /* FavoriteRecipesTableViewController copy.swift in Sources */,
 				CB1C0AFA2517518200BE9AD3 /* RecipeCell.swift in Sources */,

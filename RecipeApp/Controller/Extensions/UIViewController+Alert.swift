@@ -1,5 +1,5 @@
 //
-//  UIViewController+setAlertVc.swift
+//  UIViewController+Alert.swift
 //  travelApp
 //
 //  Created by Merouane Bellaha on 15/07/2020.
@@ -7,6 +7,10 @@
 //
 
 import UIKit
+
+enum UserChoice {
+    case doNothing, deleteFavorite
+}
 
 extension UIViewController {
 
@@ -30,5 +34,13 @@ extension UIViewController {
         alertController.view.layoutIfNeeded()
         present(alertController, animated: true) { presentedActivityController(alertController) }
     }
-}
 
+    /// set an alert with two choices: "yes" .destructive, "no" .default. When user choose one action, completion is called with UserChoice to add extra execution from ViewController
+    func setActionsAlert(title: String, message: String,
+                         completion: @escaping (UserChoice) -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { _ in completion(.deleteFavorite) })
+        alert.addAction(UIAlertAction(title: "No", style: .default) { _ in completion(.doNothing) })
+        present(alert, animated: true)
+    }
+}
