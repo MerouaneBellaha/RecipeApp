@@ -308,7 +308,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LrQ-18-clY">
-                                <rect key="frame" x="20" y="198.5" width="374" height="614.5"/>
+                                <rect key="frame" x="20" y="190" width="374" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7r-3d-BND">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="210.5"/>
@@ -392,7 +392,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-SS-8w3">
-                                        <rect key="frame" x="0.0" y="271" width="374" height="343.5"/>
+                                        <rect key="frame" x="0.0" y="271" width="374" height="352"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients details :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z56-K3-whm">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -495,7 +495,7 @@
                 <navigationController id="Dtp-uP-1MO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="star.green" id="cdt-zh-vsJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7pn-Z4-IPl">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.94093650579999999" green="0.94954043629999996" blue="0.92448878290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -541,7 +541,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jQa-ga-bpV"/>
+        <segue reference="qm0-gJ-CCn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4549019608" green="0.62352941179999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

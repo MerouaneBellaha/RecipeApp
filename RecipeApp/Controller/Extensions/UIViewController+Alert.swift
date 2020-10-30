@@ -35,11 +35,12 @@ extension UIViewController {
         present(alertController, animated: true) { presentedActivityController(alertController) }
     }
 
+    /// set an alert with two choices: "yes" .destructive, "no" .default. When user choose one action, completion is called with UserChoice to add extra execution from ViewController
     func setActionsAlert(title: String, message: String,
                          completion: @escaping (UserChoice) -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { _ in completion(.deleteFavorite) })
         alert.addAction(UIAlertAction(title: "No", style: .default) { _ in completion(.doNothing) })
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
 }

@@ -14,6 +14,11 @@ final class FavoriteRecipesTableViewController: UITableViewController {
 
     private var recipesViewModels: [RecipeViewModel] = [] { didSet { tableView.reloadData() }}
     private var coreDataManager: CoreDataManager?
+    private var footerLabel: String {
+        recipesViewModels.isEmpty ?
+            Constant.Text.addFavorite :
+            Constant.Text.emptyString
+    }
 
     // MARK: - View lifeCycle
 
@@ -64,5 +69,19 @@ final class FavoriteRecipesTableViewController: UITableViewController {
         nextViewController.isFromFavorites = true
         navigationController?.pushViewController(nextViewController, animated: true)
     }
-}
 
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return footerLabel
+    }
+
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 20, y: 100, width: tableView.frame.size.width, height: 100))
+        let labelFooter = UILabel(frame: footerView.frame)
+        labelFooter.text = footerLabel
+        labelFooter.textColor = #colorLiteral(red: 0.4705882353, green: 0.6862745098, blue: 0.4117647059, alpha: 1)
+        labelFooter.lineBreakMode = .byWordWrapping
+        labelFooter.numberOfLines = 2
+        footerView.addSubview(labelFooter)
+        return footerView
+    }
+}
